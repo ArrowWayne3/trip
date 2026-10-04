@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Southeast Asia road trip 2026–27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap">
+<style>
+:root{--mist:#EDF2F0;--paper:#F8FBF9;--ink:#102A2B;--ink2:#4A6164;--rule:#CAD7D3;
+--cond:"Barlow Semi Condensed","Avenir Next Condensed","Roboto Condensed","Arial Narrow",sans-serif;
+--sans:"Barlow","Avenir Next","Segoe UI",system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--mist);color:var(--ink);font:400 16.5px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin-left:auto;margin-right:auto;padding-left:24px;padding-right:24px}
+h1,h2,h3{margin:0;font-family:var(--cond);font-weight:600;line-height:1.1}
+p{margin:0}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid var(--ink);outline-offset:2px}
+
+.hero{padding-top:64px}
+.hero h1{max-width:14ch;font-size:clamp(46px,8.4vw,92px);font-weight:700;line-height:.94;letter-spacing:-.015em}
+.lede{max-width:46ch;margin-top:20px;font-size:clamp(17px,2.1vw,20px);line-height:1.45;color:var(--ink2)}
+.tally{margin-top:12px;font-weight:500;font-variant-numeric:tabular-nums}
+
+.band-scroll{overflow-x:auto;padding:30px 24px 4px;scrollbar-width:thin}
+.band{position:relative;min-width:980px;max-width:1032px;height:186px;margin:0 auto}
+.month{position:absolute;top:26px;height:96px;padding-left:7px;border-left:1px solid var(--rule);font:500 14px/1 var(--cond);color:var(--ink2);white-space:nowrap}
+.seg{position:absolute;top:48px;height:72px;padding:10px 8px 0;overflow:hidden;background:color-mix(in srgb,var(--c) 17%,#fff);border-top:3px solid var(--c);color:var(--ink);text-decoration:none}
+.seg:hover{background:color-mix(in srgb,var(--c) 27%,#fff)}
+.seg b{display:block;font:600 17px/1.1 var(--cond);white-space:nowrap}
+.seg .sl{display:block;margin-top:3px;font-size:13px;color:var(--ink2);white-space:nowrap}
+.seg-bar{position:absolute;left:0;right:0;bottom:0;height:7px;background:color-mix(in srgb,var(--c) 32%,#fff)}
+.seg-bar i{display:block;width:0;height:100%;background:var(--k);transition:width .6s cubic-bezier(.3,.7,.2,1)}
+.spare{position:absolute;top:51px;height:69px;background:repeating-linear-gradient(135deg,transparent 0 6px,var(--rule) 6px 7px)}
+.bnote{position:absolute;top:132px;max-width:220px;padding-left:9px;border-left:2px solid var(--c);font-size:13px;line-height:1.35;color:var(--ink2)}
+.today{position:absolute;top:2px;height:46px;border-left:2px solid var(--ink)}
+.today::after{content:"";position:absolute;bottom:-4px;left:-5px;width:8px;height:8px;border-radius:50%;background:var(--ink)}
+.today span{position:absolute;top:0;left:6px;padding:3px 7px;border-radius:3px;background:var(--ink);color:#fff;font:600 12.5px/1.2 var(--cond);white-space:nowrap}
+.today.flip span{left:auto;right:8px}
+.slack{max-width:70ch;margin-top:4px;font-size:14.5px;color:var(--ink2)}
+@media (prefers-reduced-motion:no-preference){
+.seg{animation:reveal .8s cubic-bezier(.25,.7,.2,1) both;animation-delay:calc(var(--i) * 110ms + 120ms)}
+.today,.bnote{animation:fadein .5s ease both;animation-delay:.95s}
+@keyframes reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.map-sec{padding-top:60px}
+.sec-title{margin-bottom:16px;font-size:30px}
+.map-grid{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:24px;align-items:start}
+.map{overflow:hidden;background:var(--paper);border:1px solid var(--rule);border-radius:8px}
+#map{display:block;width:100%;height:auto;aspect-ratio:648/560}
+.zoom{display:grid;gap:4px}
+.zb{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;width:100%;padding:9px 12px;border:1px solid transparent;border-radius:6px;background:none;text-align:left;cursor:pointer;font:600 16.5px/1.2 var(--cond)}
+.zb i{width:12px;height:12px;border-radius:50%;background:var(--c)}
+.zb.all i{background:none;border:2px solid var(--ink)}
+.zb small{font:500 13px/1 var(--sans);color:var(--ink2);font-variant-numeric:tabular-nums}
+.zb:hover{background:var(--paper)}
+.zb[aria-pressed="true"]{background:var(--paper);border-color:var(--rule);box-shadow:inset 3px 0 0 var(--c,var(--ink))}
+.hint{margin-top:12px;padding:0 12px;font-size:14px;color:var(--ink2)}
+.grat line{stroke:#DAE4E1;stroke-width:1}
+.grat line.eq{stroke:#B5C6C1;stroke-dasharray:5 4}
+.grat text{fill:#7B918D;font-family:var(--sans)}
+.grat line,.legl,.dot circle,.hullp{vector-effect:non-scaling-stroke}
+.legl{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-dasharray:3 4;stroke-linecap:round;opacity:.42}
+.legl.done{stroke-width:2;stroke-dasharray:none;opacity:.85}
+.dot{cursor:pointer;transition:opacity .3s}
+.dot circle{stroke-width:2}
+.dot.dim{opacity:.28}
+.dot:focus{outline:none}
+.dot:focus-visible circle{stroke:var(--ink);stroke-width:3}
+.lbl,.clbl{paint-order:stroke;stroke:var(--paper);stroke-linejoin:round;pointer-events:none;transition:opacity .3s}
+.lbl{opacity:0;fill:var(--ink);font-family:var(--sans);font-weight:500}
+.lbl.on{opacity:1}
+.clbl{font-family:var(--cond);font-weight:700}
+.clbl.off{opacity:0}
+
+.tabs{position:sticky;top:0;z-index:30;margin-top:60px;background:color-mix(in srgb,var(--mist) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.tabs-in{display:flex;gap:2px;max-width:1080px;margin:0 auto;padding:0 14px;overflow-x:auto;scrollbar-width:none}
+.tabs-in::-webkit-scrollbar{display:none}
+.tab{flex:none;display:flex;align-items:baseline;gap:7px;padding:14px 10px 11px;border-bottom:3px solid transparent;font:600 16px/1 var(--cond);color:var(--ink2);text-decoration:none;white-space:nowrap}
+.tab small{font:500 12.5px/1 var(--sans);font-variant-numeric:tabular-nums}
+.tab:hover{color:var(--ink)}
+.tab.on{color:var(--ink);border-bottom-color:var(--c)}
+
+.country{padding-top:64px}
+.c-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px 24px;padding-bottom:14px;border-bottom:3px solid var(--c)}
+.c-head h2{font-size:clamp(42px,6.5vw,68px);font-weight:700;line-height:1;letter-spacing:-.01em;color:var(--k)}
+.c-when{text-align:right;font:500 18px/1.3 var(--cond)}
+.c-when span{display:block;color:var(--ink2)}
+.c-prog{display:flex;align-items:center;gap:12px;margin-top:12px;font-size:14.5px;color:var(--ink2);font-variant-numeric:tabular-nums}
+.c-prog .bar{flex:none;width:140px;height:6px;overflow:hidden;border-radius:3px;background:color-mix(in srgb,var(--c) 24%,#fff)}
+.c-prog .bar i{display:block;width:0;height:100%;background:var(--k);transition:width .6s cubic-bezier(.3,.7,.2,1)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px 32px;margin:26px 0 0}
+.facts div{padding-top:10px;border-top:1px solid var(--rule)}
+.facts dt{font:600 16px/1.2 var(--cond);color:var(--k)}
+.facts dd{margin:4px 0 0;font-size:15px;line-height:1.5}
+
+.route{position:relative;margin-top:36px}
+.route::before{content:"";position:absolute;left:17px;top:12px;bottom:40px;border-left:2px solid color-mix(in srgb,var(--c) 50%,#fff)}
+.reg{position:relative;margin:4px 0 18px 54px;font:600 21px/1.2 var(--cond);color:var(--k)}
+.reg::before{content:"";position:absolute;left:-36px;top:.62em;width:26px;border-top:2px solid color-mix(in srgb,var(--c) 50%,#fff)}
+.reg span{margin-left:10px;font-weight:500;font-size:17px;color:var(--ink2)}
+.leg{position:relative;max-width:calc(54px + 72ch);margin:-6px 0 18px;padding-left:54px;font-size:14.5px;line-height:1.45;color:var(--ink2)}
+.leg .ico{position:absolute;left:5px;top:-3px;width:26px;height:26px;border-radius:50%;background:var(--mist);display:grid;place-items:center}
+.leg svg{width:17px;height:17px;fill:none;stroke:var(--k);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.stop{position:relative;display:grid;grid-template-columns:36px minmax(0,1fr);gap:18px;padding-bottom:34px}
+.node{position:relative;z-index:1;width:36px;height:36px;border-radius:50%;border:2px solid var(--c);background:var(--mist);display:grid;place-items:center;font:600 15px/1 var(--cond);color:var(--k);transition:background .25s,color .25s,border-color .25s}
+.stop.visited .node{background:var(--k);border-color:var(--k);color:#fff}
+.stop-main{min-width:0;margin:-4px -10px 0;padding:4px 10px 0;border-radius:6px}
+.stop-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;min-height:34px}
+.stop h3{font-size:25px}
+.len{font:500 17px/1.2 var(--cond);color:var(--ink2)}
+.visit{margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border:1.5px solid var(--rule);border-radius:999px;background:transparent;font-size:14px;line-height:1.2;cursor:pointer;white-space:nowrap}
+.visit:hover{border-color:var(--k)}
+.visit svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.visit .on{display:none}
+.visit[aria-pressed="true"]{background:var(--k);border-color:var(--k);color:#fff}
+.visit[aria-pressed="true"] .on{display:inline-flex;align-items:center;gap:6px}
+.visit[aria-pressed="true"] .off{display:none}
+.txt{max-width:72ch;margin-top:8px}
+.todo{max-width:76ch;margin:12px 0 0;padding:0;list-style:none}
+.todo .h{margin:14px 0 4px;font:600 16px/1.2 var(--cond);color:var(--k)}
+.todo .h:first-child{margin-top:4px}
+.chk{position:relative;display:grid;grid-template-columns:20px minmax(0,1fr);gap:12px;margin-left:-6px;padding:6px 8px 6px 6px;border-radius:5px;cursor:pointer}
+.chk:hover{background:color-mix(in srgb,var(--c) 10%,transparent)}
+.chk input{position:absolute;left:8px;top:9px;width:1px;height:1px;margin:0;opacity:0}
+.box{width:20px;height:20px;margin-top:2px;border:1.5px solid #7A8F8C;border-radius:4px;background:var(--paper);display:grid;place-items:center;transition:background .18s,border-color .18s}
+.box svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:scale(.5);transition:opacity .18s,transform .18s}
+.chk input:checked+.box{background:var(--k);border-color:var(--k)}
+.chk input:checked+.box svg{opacity:1;transform:none}
+.chk input:focus-visible+.box{outline:2.5px solid var(--ink);outline-offset:2px}
+.chk b{font-weight:500}
+.chk input:checked~.t b{color:var(--ink2)}
+.price{margin-left:8px;font-style:normal;font-weight:500;color:var(--k);font-variant-numeric:tabular-nums;white-space:nowrap}
+.chk .d{display:block;margin-top:1px;font-size:14.5px;line-height:1.45;color:var(--ink2)}
+.chk .d a,.meta a{color:var(--k);font-weight:500}
+.tag{align-self:center;padding:2px 6px 3px;border:1px dashed var(--ink2);border-radius:3px;font:500 12.5px/1 var(--sans);color:var(--ink2)}
+.note{max-width:72ch;margin-top:12px;padding:10px 14px;border-left:3px solid var(--k);border-radius:0 5px 5px 0;background:color-mix(in srgb,var(--c) 11%,var(--paper));font-size:15px}
+.note b{font-weight:600}
+.meta{margin-top:10px;font-size:15px}
+.costs{width:100%;max-width:560px;margin-top:16px;border-collapse:collapse;font-size:14.5px}
+.costs caption{padding-bottom:6px;text-align:left;font:600 16px/1.2 var(--cond);color:var(--k)}
+.costs td{padding:6px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.costs td+td{padding-left:16px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.costs tfoot td{border-bottom:0;font-weight:600}
+@keyframes flash{from{background:color-mix(in srgb,var(--c) 24%,transparent)}to{background:transparent}}
+.stop.flash .stop-main{animation:flash 1.8s ease-out}
+.extras{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px 44px;margin-top:6px;padding-top:24px;border-top:1px solid var(--rule)}
+.extras h3{font-size:21px;color:var(--k)}
+.extras .todo{margin-top:8px}
+.good{margin:10px 0 0;padding-left:18px}
+.good li{max-width:68ch;margin-bottom:8px}
+.good li::marker{color:var(--k)}
+.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;margin-top:56px;padding-top:22px;padding-bottom:64px;border-top:1px solid var(--rule);font-size:14.5px;color:var(--ink2)}
+#reset{padding:7px 15px;border:1.5px solid var(--rule);border-radius:999px;background:none;cursor:pointer;font-size:14.5px}
+#reset:hover{border-color:var(--ink2)}
+#reset.arm{border-color:#A3281C;color:#A3281C}
+
+@media (max-width:820px){.map-grid{grid-template-columns:1fr}.zoom{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.hint{padding:0}}
+@media (max-width:640px){
+.wrap{padding-left:18px;padding-right:18px}
+.hero{padding-top:40px}
+.band-scroll{padding-left:18px;padding-right:18px}
+.c-head{grid-template-columns:1fr}
+.c-when{text-align:left}
+.stop{grid-template-columns:30px minmax(0,1fr);gap:12px}
+.node{width:30px;height:30px;font-size:13.5px}
+.route::before{left:14px}
+.leg{padding-left:42px}
+.leg .ico{left:2px}
+.reg{margin-left:42px}
+.reg::before{left:-27px;width:20px}
+.stop h3{font-size:22px}
+.visit{margin-left:0}
+}
+@media print{.tabs,.zoom,.hint,#reset{display:none}body{background:#fff}.band-scroll{overflow:visible}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1>Southeast Asia road trip</h1>
+    <p class="lede">Six countries between October 2026 and April 2027, each one timed for its best season.</p>
+    <p class="tally" id="tally">Loading your progress…</p>
+  </div>
+  <div class="band-scroll"><div class="band" id="band"></div></div>
+  <div class="wrap"><p class="slack">Planned stays add up to 188–196 days. The hatched gaps are the 2 to 3 weeks left to spare before the end of April.</p></div>
+</header>
+
+<section class="map-sec wrap" aria-labelledby="route-h">
+  <h2 class="sec-title" id="route-h">The route</h2>
+  <div class="map-grid">
+    <div class="map"><svg id="map" viewBox="0 0 648 560" role="group" aria-label="Route map"></svg></div>
+    <div>
+      <div class="zoom" id="zoom" role="group" aria-label="Zoom the map"></div>
+      <p class="hint">Pick a country to zoom in, then a stop to jump to its notes.</p>
+    </div>
+  </div>
+</section>
+
+<nav class="tabs" aria-label="Countries"><div class="tabs-in" id="tabs-in"></div></nav>
+<main class="wrap" id="countries"></main>
+<footer class="foot wrap">
+  <p id="status" aria-live="polite"></p>
+  <button type="button" id="reset">Clear all ticks</button>
+</footer>
+
+<script>
+(() => {
+"use strict";
+const TRIP = [
+{id:"id", name:"Indonesia", c:"#0E8A8C", k:"#0A6466", when:"October to mid-November", len:"45–50 days",
+ band:{s:0, d:47, l:"45–50 days", note:"End of the dry season, and the start of Raja Ampat’s best months."},
+ lab:[300,470,"start"],
+ facts:[
+  ["When","In Java and Sulawesi the dry season runs from April to October. Raja Ampat, closer to Papua, is best from October to April."],
+  ["Scooters","About €6 a day. Always negotiate."],
+  ["The plan","2 weeks in East Java, 3 weeks in Sulawesi, then 10 days in Raja Ampat."]
+ ],
+ stops:[
+  {n:"East Java", len:"2 weeks", geo:[-7.94,112.95]},
+  {reg:"Sulawesi", regLen:"3 weeks", n:"Makassar", geo:[-5.15,119.43], lp:"l", txt:["Arrival point in Sulawesi."]},
+  {n:"Tana Toraja", geo:[-2.97,119.9], lp:"l"},
+  {n:"Togian Islands", geo:[-0.4,121.9], lp:"l"},
+  {n:"Bunaken", geo:[1.62,124.76]},
+  {n:"Banggai", geo:[-1.55,123.5]},
+  {n:"Raja Ampat", len:"10 days", geo:[-0.43,130.82], lp:"l",
+   get:["plane","Fly to Sorong (about €200–300 return), then take the ferry to Waisai: 2 h, €20 return."],
+   txt:["Pay the Raja Ampat entry fees on arrival: €18, plus €60 for environmental conservation. Some spots charge another €40 for snorkelling or diving, though not all of them."],
+   todo:[
+    {t:"Book homestays well in advance", d:"There’s very little availability once you’re there.", link:["stayrajaampat.com","https://www.stayrajaampat.com/"]},
+    {t:"Kri Island", d:"About €30 by boat from Waisai."},
+    {t:"Pasir Timbul, near Mansuar", d:"The famous sandbank."},
+    {t:"Arborek village"},
+    {t:"Rufas Island", d:"The lagoon island."},
+    {t:"Piaynemo viewpoint", d:"10 minutes by boat from Rufas, with a beautiful view from the top."}
+   ],
+   note:[["tip","Boats between islands are the biggest expense. They’re priced per boat, not per person, so share with other travellers whenever you can."]],
+   costsTitle:"Costs per person",
+   costs:[
+    ["Return flight to Sorong","€200–300"],
+    ["Ferry Sorong to Waisai, return","€20"],
+    ["Entry fee","€18"],
+    ["Conservation fee","€60"],
+    ["Homestay with 3 meals, 10 nights at about €30","€300"],
+    ["Snorkel or dive fee, some spots only","€40"],
+    ["One dive","about €35"],
+    ["Snorkelling trip, depends on how many share the boat","about €10"]
+   ],
+   total:["Before boats, dives and snorkelling","about €600–700"]}
+ ]
+},
+{id:"th", name:"Thailand", c:"#E19A12", k:"#875800", when:"Mid-November to December", len:"Ideally 6 weeks (45 days)",
+ band:{s:47, d:45, l:"6 weeks"},
+ lab:[22,214,"start"],
+ facts:[
+  ["Visa","None needed for stays under 2 months, but immigration sometimes asks to see a return ticket."],
+  ["Money","€1 is about 35 baht."],
+  ["Getting around","Use Bolt or InDrive (the app locals use, where you can negotiate the fare) rather than taxis or tuk-tuks. Keep Grab for food delivery."]
+ ],
+ stops:[
+  {n:"Bangkok", len:"5 days", geo:[13.75,100.5], lp:"b",
+   get:["train","From the airport, the Airport Rail Link reaches the centre for 45 baht, every 15 min from 6 am to midnight, and skips the traffic jams. It connects to the MRT and BTS for most hotels: the fastest and cheapest option."],
+   todo:[
+    {t:"Grand Palace", p:"500 ฿ (€14.30)", d:"Wear long trousers and a T-shirt that covers your shoulders, or they make you buy suitable clothes."},
+    {t:"Wat Pho", p:"200 ฿ (€5.70)", d:"The temple of the Reclining Buddha."},
+    {t:"Wat Arun", p:"100 ฿ (€2.80)", d:"Opposite Wat Pho on the other bank. Cross by boat for 4 baht."},
+    {t:"Chinatown"},
+    {t:"Khao San Road", d:"For the shops, the atmosphere and the bars."},
+    {t:"Night cruise with dinner on the river"}
+   ]},
+  {n:"Koh Tao", len:"4 days", geo:[10.1,99.84],
+   txt:["The island for a first dive in Thailand, and for getting certified in a little over 3 days. There are so many dive schools that prices are very low."],
+   todo:[
+    {t:"Discovery dive, or the full certification"},
+    {t:"Night dive at White Rock"},
+    {t:"Shark Island", d:"For its tunnels and corals."}
+   ],
+   note:[["warn","Many scooter rental shops here are run by the mafia, and scams are common: a tiny scratch can cost you the deposit. A blog recommends Oli’s Motorbike (no problems, reasonable prices). Wherever you rent, film the scooter when you pick it up, as proof of its condition."]]},
+  {n:"Khao Sok National Park", m:"Khao Sok", geo:[8.92,98.53], lp:"l"},
+  {n:"Koh Lanta", len:"3–4 days", geo:[7.62,99.04], txt:["A scooter costs 250 baht (€7.10) a day."]},
+  {n:"Koh Jum", len:"3 days", geo:[7.83,98.97], lp:"l", get:["boat","From Koh Lanta."],
+   txt:["Spared by mass tourism, with beaches all to yourselves. Rent a scooter or a bike directly at your hotel."],
+   todo:[{t:"The 9 beautiful beaches"},{t:"Climb Mount Pu"},{t:"Kayak to the neighbouring islands"}],
+   note:[["warn","There’s no ATM on the island, so bring enough cash."]]},
+  {n:"Ayutthaya", len:"1 day", geo:[14.35,100.57], via:[13.75,100.5], lp:"t", get:["bus","Back to Bangkok, then 2 h 30 by bus."],
+   txt:["The old royal city. Rent a bike to get around the site, about 40 baht for the day."],
+   todo:[
+    {t:"Wat Phu Khao Thong", p:"Free"},
+    {t:"Wat Mahathat", p:"50 ฿", d:"The temple with the famous Buddha head in the tree roots."},
+    {t:"Wat Phra Si Sanphet", p:"50 ฿", d:"Considered the most beautiful temple on the site."}
+   ]},
+  {n:"Sukhothai", len:"2 days", geo:[17.02,99.7], get:["bus","About 6 h by bus from Ayutthaya."],
+   txt:["Ruins of what was once the largest Buddhist centre in the world."],
+   todo:[{t:"Cycle around the archaeological site", d:"Ride outside the ramparts too: there are more beautiful monuments out there."}]},
+  {n:"Chiang Mai", geo:[18.79,98.98], lp:"l", get:["bus","4 h 40 by bus from Sukhothai."]},
+  {n:"Chiang Rai", len:"2 days, 2 nights", geo:[19.91,99.83], lp:"l", get:["bus","3 h 45 by bus from Chiang Mai, about €8. In high season, buy the ticket as soon as you arrive in Chiang Mai."],
+   todo:[
+    {t:"Wat Rong Khun, the White Temple", d:"Very, very touristy. Go for the 8 am opening; there will already be people."},
+    {t:"Wat Rong Suea Ten, the Blue Temple", p:"Free", d:"More intimate."},
+    {t:"Wat Huay Pla Kang", d:"The temple with the big white Buddha."},
+    {t:"Choui Fong tea plantation"}
+   ]},
+  {n:"Slow boat to Luang Prabang", m:"Slow boat", len:"2 days", geo:[19.89,101.13], lp:"t",
+   txt:["Two days down the Mekong, 6 hours each day, with a night in Pakbeng. €40 covers the transfer from your hotel to the boat (with a stop at the border, where you pay for the visa), both days on the boat, sandwiches for lunch, and the transfer from the port to central Luang Prabang. The night in Pakbeng is on top."],
+   todo:[{t:"Book the slow boat", d:"Through Laila Tour or on 12Go Asia.", tel:["Laila Tour","+66 8473 99996","+66847399996"]}]}
+ ],
+ good:[
+  "12Go Asia works, but buying at the station or pier can be cheaper, and there’s normally always space. Be careful in high season at the really touristy places.",
+  "Eat at the night markets: good and cheap.",
+  "Bring only a few large notes and change the rest locally, where the rate is better (like in Madagascar).",
+  "Always carry cash, especially on islands without ATMs.",
+  "Watch out for torn banknotes."
+ ]
+}
+,
+{id:"la", name:"Laos", c:"#5E9431", k:"#3D6A1B", when:"January", len:"21 days",
+ band:{s:92, d:21, l:"21 days"},
+ lab:[150,140,"start"],
+ facts:[
+  ["Visa","Required, valid for 30 days. Bring 2 passport photos."],
+  ["Buses","Avoid night buses: not very comfortable, and more expensive."]
+ ],
+ stops:[
+  {n:"Luang Prabang", len:"4 days", geo:[19.89,102.13],
+   todo:[
+    {t:"Explore the town", d:"Night market, temples and more."},
+    {t:"Kuang Si waterfall by scooter", d:"Avoid the end of the day, when the tourists arrive."},
+    {t:"Tad Sae waterfall", d:"By scooter, then pirogue."},
+    {t:"Sunset from Mount Phousi"},
+    {t:"A massage in the historic centre"}
+   ]},
+  {n:"Vang Vieng", len:"3 days", geo:[18.92,102.45],
+   todo:[
+    {t:"Blue Lagoon", d:"Lagoon no. 3 is the furthest away and the least touristy. Zip-lining on site."},
+    {t:"Tham Phou Kham cave", d:"Just above the lagoon: a cave with a reclining Buddha, strangely deserted."},
+    {t:"Hot-air balloon flight", d:"With Balloons over Vang Vieng or Above Laos."},
+    {t:"Nam Xay viewpoint"},
+    {t:"Pha Tang village", d:"17 km away."}
+   ]},
+  {n:"Thakhek Loop", m:"Thakhek", len:"4 days", geo:[17.4,104.8], lp:"l",
+   note:[["plan","Will we be worn out after two 4-day loops? If so, replace this one with a day in Champasak."]]},
+  {n:"Pakse and the Bolaven Plateau", m:"Pakse, Bolaven", len:"4 days", geo:[15.12,105.8],
+   txt:["Pakse is the starting point of the loop."],
+   todo:[{t:"Rent motorbikes at Miss Noy", d:"Plenty of French travellers rent from Yves, a Frenchman. Go to the shop at 6 pm the evening before you set off and he explains the whole loop."}]},
+  {n:"4000 Islands: Don Det and Don Khon", m:"4000 Islands", len:"4 days", geo:[13.97,105.92],
+   get:["bus","From Pakse, about 3 h in total. A local bus normally leaves the bus station once a day and drops you at the port, then a small boat takes you to Don Det."],
+   txt:["Base yourselves on Don Det, which is livelier than Don Khon. Rooms are cheap compared to the rest of Laos, and saying you’ll stay several nights helps bring the price down."],
+   todo:[
+    {t:"Book a room on Don Det", d:"Do it ahead, it’s often full."},
+    {t:"Rent bikes and explore the islands"},
+    {t:"Swim"},
+    {t:"Sunset cruise on the Mekong"}
+   ]}
+ ]
+},
+{id:"kh", name:"Cambodia", c:"#BD4A76", k:"#8E2F54", when:"February", len:"17–20 days",
+ band:{s:123, d:18.5, l:"17–20 days"},
+ lab:[192,264,"middle"],
+ facts:[
+  ["Visa","Required, valid for 1 month, issued on arrival for $30. Bring passport photos."],
+  ["Health","No mandatory vaccines. Hepatitis, typhoid and DTP-polio are recommended."],
+  ["Money","Pay in riel, not dollars: sellers often short-change dollar payments by applying their own exchange rate. Riel can’t be exchanged once you’ve left the country."],
+  ["SIM card","For example Metfone: 60 GB for 30 days, $7."]
+ ],
+ stops:[
+  {n:"Siem Reap", len:"About 4 nights", geo:[13.36,103.86],
+   txt:["Buy the Angkor pass online to avoid the morning crowds, or buy it after 4 pm the day before: it then lets you in for sunset at no extra cost.","Hire one tuk-tuk driver for all your temple days and set off early. Book through your hotel or negotiate in town, and check that cold water is included in the price."],
+   todo:[
+    {h:"Top 5 temples"},
+    {t:"Angkor Wat", d:"The best known."},
+    {t:"Ta Prohm", d:"Where nature has taken over."},
+    {t:"Beng Mealea", d:"60 km away, 2 h by tuk-tuk. Fewer people since it’s out of the way."},
+    {t:"Bayon", d:"Famous and busy, but a must for the faces carved in stone."},
+    {t:"Baphuon", d:"Built up high."},
+    {h:"In and around town"},
+    {t:"Night market"},
+    {t:"Apsara dance show"},
+    {t:"Boat trip to the floating village of Kampong Phluk", d:"Or to another village nearby."}
+   ],
+   link:["Official Angkor pass website","https://www.angkorenterprise.gov.kh/"],
+   costsTitle:"Prices",
+   costs:[["Angkor pass, 1 day","$37"],["Angkor pass, 3 days","$62"],["Tuk-tuk for the day, depending on the hotel","$15–25"]]},
+  {n:"Mondulkiri", len:"3–4 days", geo:[12.45,107.19], lp:"t",
+   txt:["Base yourselves in Sen Monorom."],
+   todo:[{t:"Hikes and waterfalls"}],
+   stay:"Chomkatae Bungalow, comfortable, €14 a night."},
+  {n:"Phnom Penh", len:"2 days", geo:[11.56,104.92],
+   note:[["warn","Lots of theft here."]],
+   todo:[{t:"Royal Palace"},{t:"Silver Pagoda"},{t:"Central Market"},{t:"Tuol Sleng Genocide Museum"}]},
+  {n:"Kampot", opt:1, geo:[10.61,104.18]},
+  {n:"Koh Rong Sanloem or Koh Rong", m:"Koh Rong", len:"3 days or more", geo:[10.65,103.27], lp:"l", get:["boat","By boat from Sihanoukville."],
+   todo:[
+    {h:"Pick one"},
+    {t:"Koh Rong Sanloem", p:"30 min–1 h by boat", d:"Quieter and wilder, with yoga classes on the beach.", opt:1},
+    {t:"Koh Rong", p:"30–45 min, $22 return", d:"The best known: livelier at night and a bit bigger, with zip-lining in the jungle and secluded beaches.", opt:1}
+   ]}
+ ],
+ taste:[
+  {t:"Amok", d:"Fish or meat with coconut milk, cooked in a banana leaf."},
+  {t:"Lok lak", d:"Beef sautéed in a marinade."},
+  {t:"Ang dtray meuk", d:"Grilled squid."}
+ ],
+ good:["Fee-free banks: SBI LY HOUR and Shinhan. Otherwise BRED, the French bank’s branch, which has the lowest fees."]
+}
+,
+{id:"vn", name:"Vietnam", c:"#D2442F", k:"#A3281C", when:"March", len:"30 days",
+ band:{s:151, d:30, l:"30 days", note:"March: clear skies in the northern mountains."},
+ lab:[238,104,"start"],
+ facts:[
+  ["Visa","Not needed for stays under 45 days, and free."],
+  ["Budget","€750–810 for 30 days, counting €25–27 a day."],
+  ["When","November to April, ideally February to April for the coast and the centre. The north is cold in December and January, while the south is always hot. April suits the whole country; failing that, March brings clear skies to the northern mountains."],
+  ["Culture","Cover shoulders and knees and take your shoes off to visit a temple. Always recount your change."]
+ ],
+ stops:[
+  {n:"Hanoi", len:"3 days minimum", geo:[21.03,105.85], lp:"l"},
+  {n:"Ha Giang Loop", m:"Ha Giang", len:"4 days", geo:[22.82,104.98], get:["bus","About 6 h by bus from Hanoi."]},
+  {n:"Cat Ba and Lan Ha Bay", m:"Cat Ba", geo:[20.73,107.05], get:["bus","9 h to 9 h 30 by bus from Ha Giang."],
+   todo:[
+    {t:"Lan Ha Bay cruise", d:"Ha Long Bay’s little sister, with fewer tourists. Book it on Cat Ba itself, where it’s half the price (e.g. €16 instead of €20–40 for the same cruise). The New Horizon hotel sells them even if you don’t stay there.", link:["Example of a 2-day, 1-night cruise","https://parfumdautomne.fr/jonque-privative-halong-baie/"]},
+    {t:"A night at Lan Ha Floating Homestay", d:"Paddleboards and rowing boats to use.", link:["See it on Booking.com","https://www.booking.com/hotel/vn/lan-ha-floating-homestay.fr.html"]}
+   ]},
+  {n:"Ninh Binh", len:"2 days minimum", geo:[20.25,105.97], lp:"l", get:["bus","3 h 40 by bus from Cat Ba."],
+   todo:[{t:"Tam Coc", d:"The “Ha Long Bay on land”."}]},
+  {n:"Phong Nha-Ke Bang National Park", m:"Phong Nha", len:"2 days", geo:[17.59,106.28], get:["bus","About 7 h by bus from Ninh Binh."],
+   todo:[{t:"The park’s caves", d:"Not too many tourists, and home to the largest cave in the world."},{t:"Kayak inside the caves"}]},
+  {n:"Hoi An", len:"3 days minimum", geo:[15.88,108.33], get:["bus","7–8 h by bus. Or 1 h 20 by bus to Dong Hoi, then 5 h 30 by train; the train stops at Da Nang, about 45 min from Hoi An."],
+   todo:[{t:"Get clothes tailor-made"}]}
+ ],
+ taste:[{t:"Bánh mì"},{t:"Phở"},{t:"Mango cake", d:"A Hoi An speciality."},{t:"Egg coffee"},{t:"Coconut coffee"}],
+ maybe:[
+  {t:"Da Lat", d:"2 days."},
+  {t:"Mekong Delta"},
+  {t:"Mount Fansipan", d:"In the Sapa region."},
+  {t:"Hoang Su Phi district", d:"In the north."},
+  {t:"Ba Be Lake", d:"In the north."},
+  {t:"Pu Luong Nature Reserve", d:"2 days, 1 night. Walks through the rice terraces, far less touristy than Sapa or Mai Chau. To be decided, as it’s a big detour."}
+ ],
+ good:[
+  "Night buses can be booked straight from your hotel, with no trip to the station, and they save you a night’s accommodation.",
+  "Bus tickets: 12Go Asia or Vexere (Vexere needs a Vietnamese phone number)."
+ ]
+},
+{id:"ph", name:"Philippines", c:"#3468BD", k:"#21488A", when:"April", len:"1 month",
+ band:{s:182, d:30, l:"1 month"},
+ lab:[470,194,"start"],
+ stops:[
+  {reg:"Luzon", n:"Manila", geo:[14.6,120.98], txt:["Land in Manila."], todo:[{t:"Go and see Cherryl"}]},
+  {n:"Banaue and Batad", m:"Banaue, Batad", len:"4 days", geo:[16.93,121.06], txt:["Rice terraces listed as a UNESCO World Heritage site."], todo:[{t:"Hike the rice terraces"}]},
+  {reg:"Palawan", n:"Coron", len:"3 days", geo:[12,120.2],
+   txt:["Coron is all about island hopping: a boat tour of the highlights, private if possible. Stay on Busuanga Island, near Coron town (the town, not Coron Island)."],
+   todo:[
+    {h:"On the island-hopping tour"},
+    {t:"Kayangan Lake", p:"€5.40", d:"The most popular spot, so start the day here. Arrive around 7:30–8 am."},
+    {t:"Twin Lagoon", p:"€3.60", d:"Go around 1 pm, while the group tours have lunch. Walk out on the footbridge at the entrance to the first lagoon; you’ll probably have it to yourselves."},
+    {t:"Banul Beach", p:"€1.80", d:"Avoid 11 am to 1:30 pm, when the group tours eat there. Or go to Smith Beach instead, which sees very few tourists."},
+    {t:"Barracuda Lake", d:"Scenery similar to Kayangan Lake. The water temperature reportedly jumps from 28 to 38 °C within a few metres of depth. A 15–20 min walk up to the lake."}
+   ]},
+  {n:"El Nido", len:"3 days", geo:[11.18,119.39], lp:"l", get:["boat","From Coron: a 2-night boat expedition, or a ferry (under 5 h), depending on budget and time."]},
+  {n:"Port Barton", len:"4 days", geo:[10.41,119.17], get:["bus","3 h by road from El Nido."]},
+  {n:"Puerto Princesa", len:"2 days", geo:[9.74,118.74], lp:"b"},
+  {reg:"Visayas and Mindanao", n:"Siargao", len:"4 days to a week", geo:[9.85,126.05], todo:[{t:"Natural pools"},{t:"Coconut forest"},{t:"Surf"}]},
+  {n:"Siquijor", len:"5 days to a week", geo:[9.2,123.52], lp:"b", stay:"Chekesh Casa Siquijor."}
+ ]
+}
+];
+const TD = 212, START = new Date(2026, 9, 1);
+const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[ch]);
+const slug = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+const CHECK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg>';
+const ICON = {
+  bus:'<path d="M6 17V6.5A2.5 2.5 0 0 1 8.5 4h7A2.5 2.5 0 0 1 18 6.5V17zM6 11h12M8 17v2.5M16 17v2.5M9 14h.01M15 14h.01"/>',
+  boat:'<path d="M3 18c1.5 1.3 3 1.3 4.5 0s3-1.3 4.5 0 3 1.3 4.5 0 3-1.3 4.5 0M5 14.5 6 9h12l1 5.5M12 9V4M12 4l4 2.5h-4"/>',
+  train:'<path d="M8 3.5h8A2.5 2.5 0 0 1 18.5 6v7a3 3 0 0 1-3 3h-7a3 3 0 0 1-3-3V6A2.5 2.5 0 0 1 8 3.5zM5.5 10h13M9 16l-2 4.5M15 16l2 4.5M9 13h.01M15 13h.01"/>',
+  plane:'<path d="M12 2.8c.8 0 1.4.7 1.4 1.5v4.9l6.8 4.1v1.9l-6.8-2.1v4.3l2 1.5v1.4L12 19.2l-3.4 1.1v-1.4l2-1.5v-4.3l-6.8 2.1v-1.9l6.8-4.1V4.3c0-.8.6-1.5 1.4-1.5z"/>'
+};
+const NOTE = {warn:"Heads up:", tip:"Tip:", plan:"To decide:"};
+
+/* ---------- index ---------- */
+const STOPS = [], ITEMS = [];
+TRIP.forEach(c => {
+  c.stops.forEach(s => {
+    s.c = c; s.id = c.id + "-" + slug(s.n); s.num = STOPS.length + 1; STOPS.push(s);
+    (s.todo || []).forEach(it => { if (it.h) return; it.id = s.id + "--" + slug(it.t); it.c = c; ITEMS.push(it); });
+  });
+  ["taste", "maybe"].forEach(k => (c[k] || []).forEach(it => {
+    it.id = c.id + "-" + k + "--" + slug(it.t); it.c = c; if (k === "maybe") it.opt = 1; ITEMS.push(it);
+  }));
+});
+
+/* ---------- state ---------- */
+const KEY = "sea-roadtrip-2026-27";
+const store = (window.storage && typeof window.storage.get === "function" && typeof window.storage.set === "function") ? window.storage : null;
+let state = {done: {}}, loaded = !store, saveT = 0, armT = 0;
+const tally = $("#tally"), statusEl = $("#status"), resetBtn = $("#reset");
+const NS = "http://www.w3.org/2000/svg", W = 648, H = 560, AR = W / H;
+let svg = null, vb = {x: 0, y: 0, w: W, h: H}, pxW = W, active = "", showCL = true, raf = 0, zbAllN = null;
+const GL = [], LEGS = [], HULLS = [];
+
+/* ---------- html ---------- */
+function bandHTML(){
+  const months = [["Oct 2026",31],["Nov",30],["Dec",31],["Jan 2027",31],["Feb",28],["Mar",31],["Apr",30]];
+  const pc = v => (v / TD * 100).toFixed(3) + "%";
+  let h = "", o = 0;
+  months.forEach(m => { h += `<div class="month" style="left:${pc(o)}">${m[0]}</div>`; o += m[1]; });
+  TRIP.forEach((c, i) => {
+    const b = c.band;
+    h += `<a class="seg" href="#c-${c.id}" data-c="${c.id}" style="--i:${i};--c:${c.c};--k:${c.k};left:${pc(b.s)};width:calc(${pc(b.d)} - 3px)"><b>${esc(c.name)}</b><span class="sl">${esc(b.l)}</span><span class="seg-bar"><i></i></span></a>`;
+    if (b.note) h += `<p class="bnote" style="--c:${c.c};left:${pc(b.s)}">${esc(b.note)}</p>`;
+    const nx = TRIP[i + 1];
+    if (nx && nx.band.s - (b.s + b.d) >= 3) h += `<div class="spare" title="Spare days" style="left:${pc(b.s + b.d)};width:calc(${pc(nx.band.s - b.s - b.d)} - 3px)"></div>`;
+  });
+  const now = new Date(), today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const di = Math.round((today - START) / 864e5);
+  if (di >= 0 && di < TD) h += `<div class="today${di / TD > .85 ? " flip" : ""}" style="left:${pc(di + .5)}"><span>Today, ${now.getDate()} ${MON[now.getMonth()]}</span></div>`;
+  return h;
+}
+function itemHTML(it){
+  if (it.h) return `<li class="h">${esc(it.h)}</li>`;
+  let d = it.d ? esc(it.d) : "";
+  if (it.link) d += ` <a href="${esc(it.link[1])}" target="_blank" rel="noopener">${esc(it.link[0])}</a>`;
+  if (it.tel) d += ` ${esc(it.tel[0])}: <a href="tel:${esc(it.tel[2])}">${esc(it.tel[1])}</a>`;
+  return `<li><label class="chk"><input type="checkbox" data-id="${it.id}"><span class="box">${CHECK}</span><span class="t"><b>${esc(it.t)}</b>${it.p ? `<em class="price">${esc(it.p)}</em>` : ""}${d ? `<span class="d">${d}</span>` : ""}</span></label></li>`;
+}
+function stopHTML(s){
+  let h = "";
+  if (s.reg) h += `<p class="reg">${esc(s.reg)}${s.regLen ? `<span>${esc(s.regLen)}</span>` : ""}</p>`;
+  if (s.get) h += `<p class="leg"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON[s.get[0]]}</svg></span>${esc(s.get[1])}</p>`;
+  h += `<article class="stop" id="s-${s.id}"><div class="node" aria-hidden="true">${s.num}</div><div class="stop-main"><div class="stop-top"><h3>${esc(s.n)}</h3>`;
+  if (s.len) h += `<span class="len">${esc(s.len)}</span>`;
+  if (s.opt) h += `<span class="tag">Maybe</span>`;
+  h += `<button type="button" class="visit" data-id="${s.id}" aria-pressed="false" aria-label="Visited ${esc(s.n)}"><span class="off">Mark as visited</span><span class="on">${CHECK}Visited</span></button></div>`;
+  (s.txt || []).forEach(p => { h += `<p class="txt">${esc(p)}</p>`; });
+  if (s.todo) h += `<ul class="todo">${s.todo.map(itemHTML).join("")}</ul>`;
+  (s.note || []).forEach(n => { h += `<p class="note"><b>${NOTE[n[0]]}</b> ${esc(n[1])}</p>`; });
+  if (s.stay) h += `<p class="meta"><b>Stay:</b> ${esc(s.stay)}</p>`;
+  if (s.link) h += `<p class="meta"><a href="${esc(s.link[1])}" target="_blank" rel="noopener">${esc(s.link[0])}</a></p>`;
+  if (s.costs) h += `<table class="costs"><caption>${esc(s.costsTitle || "Costs")}</caption><tbody>${s.costs.map(r => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</tbody>${s.total ? `<tfoot><tr><td>${esc(s.total[0])}</td><td>${esc(s.total[1])}</td></tr></tfoot>` : ""}</table>`;
+  return h + `</div></article>`;
+}
+function countryHTML(c){
+  let h = `<section class="country" id="c-${c.id}" style="--c:${c.c};--k:${c.k}" aria-labelledby="h-${c.id}"><header class="c-head"><h2 id="h-${c.id}">${esc(c.name)}</h2><p class="c-when">${esc(c.when)}<span>${esc(c.len)}</span></p></header>`;
+  h += `<div class="c-prog"><span class="bar"><i></i></span><span class="c-count"></span></div>`;
+  if (c.facts) h += `<dl class="facts">${c.facts.map(f => `<div><dt>${esc(f[0])}</dt><dd>${esc(f[1])}</dd></div>`).join("")}</dl>`;
+  h += `<div class="route">${c.stops.map(stopHTML).join("")}</div>`;
+  const ex = [];
+  if (c.taste) ex.push(`<div><h3>Foods to try</h3><ul class="todo">${c.taste.map(itemHTML).join("")}</ul></div>`);
+  if (c.maybe) ex.push(`<div><h3>Maybe, if there’s time</h3><ul class="todo">${c.maybe.map(itemHTML).join("")}</ul></div>`);
+  if (c.good) ex.push(`<div><h3>Good to know</h3><ul class="good">${c.good.map(g => `<li>${esc(g)}</li>`).join("")}</ul></div>`);
+  if (ex.length) h += `<div class="extras">${ex.join("")}</div>`;
+  return h + `</section>`;
+}
+
+/* ---------- tabs ---------- */
+function buildTabs(){
+  const box = $("#tabs-in");
+  TRIP.forEach(c => {
+    const a = document.createElement("a");
+    a.className = "tab"; a.href = "#c-" + c.id; a.style.setProperty("--c", c.c);
+    a.innerHTML = esc(c.name) + "<small></small>";
+    box.appendChild(a); c.tab = a; c.tabN = a.querySelector("small");
+  });
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(en => {
+      if (en.isIntersecting) TRIP.forEach(c => c.tab.classList.toggle("on", "c-" + c.id === en.target.id));
+    }), {rootMargin: "-40% 0px -55% 0px"});
+    TRIP.forEach(c => io.observe(document.getElementById("c-" + c.id)));
+  }
+}
+
+/* ---------- map ---------- */
+const proj = g => [(g[1] - 93) * 16, (25 - g[0]) * 16];
+function mk(tag, attrs, parent){
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function hull(pts){
+  const p = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const lo = [], up = [];
+  for (const q of p) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], q) <= 0) lo.pop(); lo.push(q); }
+  for (let i = p.length - 1; i >= 0; i--) { const q = p[i]; while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], q) <= 0) up.pop(); up.push(q); }
+  up.pop(); lo.pop();
+  return lo.concat(up);
+}
+function buildMap(){
+  svg = $("#map");
+  const gG = mk("g", {class: "grat"}, svg);
+  [20, 15, 10, 5, 0, -5].forEach(l => {
+    const y = (25 - l) * 16;
+    mk("line", {x1: -60, x2: W + 60, y1: y, y2: y, class: l === 0 ? "eq" : ""}, gG);
+    const t = mk("text", {}, gG); t.textContent = l === 0 ? "Equator" : Math.abs(l) + "°" + (l > 0 ? "N" : "S");
+    GL.push({t, k: "y", v: y});
+  });
+  [95, 100, 105, 110, 115, 120, 125, 130].forEach(l => {
+    const x = (l - 93) * 16;
+    mk("line", {x1: x, x2: x, y1: -60, y2: H + 60}, gG);
+    const t = mk("text", {}, gG); t.textContent = l + "°E";
+    GL.push({t, k: "x", v: x});
+  });
+  STOPS.forEach(s => { s.xy = proj(s.geo); });
+  const gH = mk("g", {}, svg);
+  TRIP.forEach(c => {
+    const hp = hull(c.stops.map(s => s.xy));
+    const g = mk("g", {opacity: ".14"}, gH);
+    HULLS.push(mk("path", {class: "hullp", d: "M" + hp.map(p => p[0].toFixed(1) + " " + p[1].toFixed(1)).join("L") + "Z", fill: c.c, stroke: c.c, "stroke-linejoin": "round"}, g));
+  });
+  const gR = mk("g", {}, svg);
+  let prev = null;
+  STOPS.forEach(s => {
+    (s.via ? [proj(s.via), s.xy] : [s.xy]).forEach(p => {
+      if (prev) LEGS.push({s, el: mk("line", {class: "legl", x1: prev[0], y1: prev[1], x2: p[0], y2: p[1]}, gR)});
+      prev = p;
+    });
+  });
+  const gC = mk("g", {}, svg);
+  TRIP.forEach(c => { c.cl = mk("text", {class: "clbl", x: c.lab[0], y: c.lab[1], "text-anchor": c.lab[2], fill: c.k}, gC); c.cl.textContent = c.name; });
+  const gD = mk("g", {}, svg), gL = mk("g", {}, svg);
+  STOPS.forEach(s => {
+    const g = mk("g", {class: "dot", tabindex: "0", role: "button", "aria-label": s.n + ", " + s.c.name}, gD);
+    mk("title", {}, g).textContent = s.n;
+    s.dot = mk("circle", {cx: s.xy[0], cy: s.xy[1], r: 4.5, fill: "#fff", stroke: s.c.c}, g);
+    s.dotG = g;
+    s.lbl = mk("text", {class: "lbl"}, gL); s.lbl.textContent = s.m || s.n;
+    g.addEventListener("click", () => dotClick(s));
+    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); dotClick(s); } });
+  });
+  const z = $("#zoom");
+  const mkBtn = (cid, name, color) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "zb" + (cid ? "" : " all"); b.dataset.c = cid;
+    if (color) b.style.setProperty("--c", color);
+    b.setAttribute("aria-pressed", cid === "" ? "true" : "false");
+    b.innerHTML = `<i></i><span>${esc(name)}</span><small></small>`;
+    b.addEventListener("click", () => setActive(cid));
+    z.appendChild(b); return b;
+  };
+  zbAllN = mkBtn("", "Whole trip").querySelector("small");
+  TRIP.forEach(c => { c.zbN = mkBtn(c.id, c.name, c.c).querySelector("small"); });
+  const measure = () => {
+    pxW = svg.getBoundingClientRect().width || W;
+    showCL = pxW >= 560;
+    TRIP.forEach(c => c.cl.classList.toggle("off", !!active || !showCL));
+    rescale();
+  };
+  if ("ResizeObserver" in window) new ResizeObserver(measure).observe(svg); else window.addEventListener("resize", measure);
+  measure();
+}
+function rescale(){
+  if (!svg) return;
+  const u = vb.w / pxW, off = 8 * u;
+  GL.forEach(g => {
+    g.t.setAttribute("font-size", (10.5 * u).toFixed(2));
+    if (g.k === "y") { g.t.setAttribute("x", (vb.x + 6 * u).toFixed(2)); g.t.setAttribute("y", (g.v - 4 * u).toFixed(2)); }
+    else { g.t.setAttribute("x", (g.v + 4 * u).toFixed(2)); g.t.setAttribute("y", (vb.y + vb.h - 7 * u).toFixed(2)); }
+  });
+  const hw = Math.max(14, Math.min(30, pxW / 26));
+  HULLS.forEach(p => p.setAttribute("stroke-width", hw));
+  TRIP.forEach(c => { c.cl.setAttribute("font-size", (15 * u).toFixed(2)); c.cl.setAttribute("stroke-width", (4 * u).toFixed(2)); });
+  STOPS.forEach(s => {
+    s.dot.setAttribute("r", (4.6 * u).toFixed(2));
+    const x = s.xy[0], y = s.xy[1], t = s.lbl, p = s.lp || "r";
+    let tx = x, ty = y + 4.3 * u, a = "start";
+    if (p === "r") tx = x + off;
+    else if (p === "l") { tx = x - off; a = "end"; }
+    else if (p === "t") { ty = y - off - u; a = "middle"; }
+    else { ty = y + off + 10 * u; a = "middle"; }
+    t.setAttribute("x", tx.toFixed(2)); t.setAttribute("y", ty.toFixed(2)); t.setAttribute("text-anchor", a);
+    t.setAttribute("font-size", (12.5 * u).toFixed(2)); t.setAttribute("stroke-width", (3.5 * u).toFixed(2));
+  });
+}
+function setVB(v){
+  vb = v;
+  svg.setAttribute("viewBox", `${v.x.toFixed(2)} ${v.y.toFixed(2)} ${v.w.toFixed(2)} ${v.h.toFixed(2)}`);
+  rescale();
+}
+function boxFor(c){
+  const xs = c.stops.map(s => s.xy[0]), ys = c.stops.map(s => s.xy[1]);
+  let x0 = Math.min(...xs) - 36, y0 = Math.min(...ys) - 30;
+  let w = Math.max(...xs) + 36 - x0, h = Math.max(...ys) + 30 - y0;
+  if (w / h < AR) { const nw = h * AR; x0 -= (nw - w) / 2; w = nw; } else { const nh = w / AR; y0 -= (nh - h) / 2; h = nh; }
+  if (w > W || h > H) return {x: 0, y: 0, w: W, h: H};
+  return {x: Math.max(0, Math.min(x0, W - w)), y: Math.max(0, Math.min(y0, H - h)), w, h};
+}
+function zoomTo(t){
+  cancelAnimationFrame(raf);
+  if (reduce) { setVB(t); return; }
+  const f = {x: vb.x, y: vb.y, w: vb.w, h: vb.h}, t0 = performance.now(), D = 700;
+  const step = now => {
+    let k = Math.min(1, (now - t0) / D);
+    k = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+    setVB({x: f.x + (t.x - f.x) * k, y: f.y + (t.y - f.y) * k, w: f.w + (t.w - f.w) * k, h: f.h + (t.h - f.h) * k});
+    if (k < 1) raf = requestAnimationFrame(step);
+  };
+  raf = requestAnimationFrame(step);
+}
+function setActive(cid){
+  active = cid;
+  document.querySelectorAll(".zb").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === cid ? "true" : "false"));
+  STOPS.forEach(s => {
+    s.dotG.classList.toggle("dim", !!cid && s.c.id !== cid);
+    s.lbl.classList.toggle("on", !!cid && s.c.id === cid);
+  });
+  TRIP.forEach(c => c.cl.classList.toggle("off", !!cid || !showCL));
+  zoomTo(cid ? boxFor(TRIP.find(c => c.id === cid)) : {x: 0, y: 0, w: W, h: H});
+}
+function dotClick(s){
+  if (active !== s.c.id) { setActive(s.c.id); return; }
+  goTo(s.art, true);
+}
+function goTo(el, flash){
+  const y = el.getBoundingClientRect().top + window.scrollY - 60;
+  window.scrollTo({top: Math.max(0, y), behavior: reduce ? "auto" : "smooth"});
+  if (flash) { el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); }
+}
+
+/* ---------- progress ---------- */
+function refresh(){
+  const d = state.done;
+  let SV = 0, ST = 0, IV = 0, IT = 0;
+  TRIP.forEach(c => {
+    let sv = 0, st = 0, iv = 0, it = 0;
+    c.stops.forEach(s => {
+      const v = !!d[s.id];
+      if (!s.opt) { st++; if (v) sv++; }
+      s.art.classList.toggle("visited", v);
+      s.btn.setAttribute("aria-pressed", v ? "true" : "false");
+      if (s.dot) s.dot.setAttribute("fill", v ? c.c : "#fff");
+    });
+    ITEMS.forEach(x => { if (x.c === c && !x.opt) { it++; if (d[x.id]) iv++; } });
+    const pct = (st ? sv / st * 100 : 0) + "%";
+    c.bar.style.width = pct;
+    if (c.segBar) c.segBar.style.width = pct;
+    c.count.textContent = `${sv} of ${st} stops visited, ${iv} of ${it} things done`;
+    c.tabN.textContent = `${sv}/${st}`;
+    c.zbN.textContent = `${sv}/${st}`;
+    SV += sv; ST += st; IV += iv; IT += it;
+  });
+  inputs.forEach(i => { i.checked = !!d[i.dataset.id]; });
+  LEGS.forEach(l => l.el.classList.toggle("done", !!d[l.s.id]));
+  zbAllN.textContent = `${SV}/${ST}`;
+  if (loaded) tally.textContent = `${SV} of ${ST} stops visited and ${IV} of ${IT} things done.` + (SV + IV === 0 ? " Tick them off as you go." : "");
+}
+function setStatus(t){ statusEl.textContent = t; }
+async function load(){
+  if (!store) { setStatus("This copy can’t save ticks, so they reset when the page closes. Open it in Claude to keep them."); refresh(); return; }
+  setStatus("Loading your ticks…");
+  let saved = null;
+  try { const r = await store.get(KEY, false); if (r && r.value) saved = JSON.parse(r.value); } catch (e) { saved = null; }
+  if (saved && saved.done && typeof saved.done === "object") state.done = Object.assign({}, saved.done, state.done);
+  loaded = true; refresh(); setStatus("Ticks save automatically.");
+}
+function save(){
+  if (!store) return;
+  clearTimeout(saveT); setStatus("Saving…");
+  const fail = "Saving failed. Change any tick to try again; until then, ticks only last until this page closes.";
+  saveT = setTimeout(async () => {
+    try { const r = await store.set(KEY, JSON.stringify(state), false); setStatus(r ? "All ticks saved." : fail); }
+    catch (e) { setStatus(fail); }
+  }, 450);
+}
+function setDone(id, v){ if (v) state.done[id] = 1; else delete state.done[id]; refresh(); save(); }
+function disarm(){ clearTimeout(armT); resetBtn.classList.remove("arm"); resetBtn.textContent = "Clear all ticks"; }
+
+/* ---------- init ---------- */
+$("#band").innerHTML = bandHTML();
+$("#countries").innerHTML = TRIP.map(countryHTML).join("");
+buildTabs();
+buildMap();
+TRIP.forEach(c => {
+  const sec = document.getElementById("c-" + c.id);
+  c.bar = sec.querySelector(".c-prog .bar i");
+  c.count = sec.querySelector(".c-count");
+  c.segBar = document.querySelector('.seg[data-c="' + c.id + '"] .seg-bar i');
+});
+STOPS.forEach(s => { s.art = document.getElementById("s-" + s.id); s.btn = s.art.querySelector(".visit"); });
+const inputs = Array.prototype.slice.call(document.querySelectorAll("input[data-id]"));
+
+document.addEventListener("change", e => {
+  const t = e.target;
+  if (t && t.matches && t.matches("input[data-id]")) setDone(t.dataset.id, t.checked);
+});
+document.addEventListener("click", e => {
+  const b = e.target.closest && e.target.closest(".visit");
+  if (b) { setDone(b.dataset.id, !state.done[b.dataset.id]); return; }
+  const a = e.target.closest && e.target.closest('a[href^="#"]');
+  if (a) {
+    const el = document.getElementById(a.getAttribute("href").slice(1));
+    if (el) { e.preventDefault(); goTo(el, false); }
+  }
+});
+resetBtn.addEventListener("click", () => {
+  if (!resetBtn.classList.contains("arm")) {
+    resetBtn.classList.add("arm"); resetBtn.textContent = "Press again to clear every tick";
+    armT = setTimeout(disarm, 4000); return;
+  }
+  disarm(); state.done = {}; refresh(); save();
+});
+
+refresh();
+load();
+})();
+</script>
+</body>
+</html>
