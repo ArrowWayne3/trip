@@ -12,6 +12,7 @@
 --cond:"Barlow Semi Condensed","Avenir Next Condensed","Roboto Condensed","Arial Narrow",sans-serif;
 --sans:"Barlow","Avenir Next","Segoe UI",system-ui,-apple-system,sans-serif}
 *{box-sizing:border-box}
+[hidden]{display:none !important}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--mist);color:var(--ink);font:400 16.5px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
 .wrap{max-width:1080px;margin-left:auto;margin-right:auto;padding-left:24px;padding-right:24px}
@@ -158,36 +159,55 @@ button{font:inherit;color:inherit}
 .good li{max-width:68ch;margin-bottom:8px}
 .good li::marker{color:var(--k)}
 .foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;margin-top:56px;padding-top:22px;padding-bottom:64px;border-top:1px solid var(--rule);font-size:14.5px;color:var(--ink2)}
-#reset{padding:7px 15px;border:1.5px solid var(--rule);border-radius:999px;background:none;cursor:pointer;font-size:14.5px}
-#reset:hover{border-color:var(--ink2)}
+#reset,#restore{padding:7px 15px;border:1.5px solid var(--rule);border-radius:999px;background:none;cursor:pointer;font-size:14.5px}
+#reset:hover,#restore:hover,#restore.arm{border-color:var(--ink2)}
 #reset.arm{border-color:#A3281C;color:#A3281C}
+.fbt{display:flex;flex-wrap:wrap;gap:8px}
 
 .todo.mine{margin-top:4px}
 .mine:empty{display:none}
-.mine li{display:flex;align-items:flex-start;gap:2px}
-.mine .chk{flex:1;min-width:0}
+.todo li.it{display:flex;align-items:flex-start;gap:2px}
+.todo li.it .chk{flex:1;min-width:0}
 .del{flex:none;display:grid;place-items:center;min-width:32px;height:32px;margin-top:1px;padding:0 8px;border:1.5px solid transparent;border-radius:5px;background:none;color:var(--ink2);font-size:14px;font-weight:500;cursor:pointer}
 .del svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.it .del{opacity:.45}
+.stop-btns .del{opacity:.6}
+.it:hover .del,.stop-top:hover .del,.del:focus-visible,.del.arm{opacity:1}
 .del:hover,.del.arm{color:#A3281C}
 .del.arm{border-color:#A3281C}
+.stop-btns{margin-left:auto;align-self:center;display:flex;align-items:center;gap:2px}
+.stop-btns .visit{margin-left:0}
 .add{max-width:560px;margin-top:6px}
+.add.addplace{max-width:620px;margin:-12px 0 30px 54px}
 .addbtn{display:inline-flex;align-items:center;gap:7px;margin-left:-6px;padding:6px 10px 6px 7px;border:0;border-radius:5px;background:none;color:var(--k);font-size:15px;font-weight:500;cursor:pointer}
 .addbtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
 .addbtn:hover{background:color-mix(in srgb,var(--c) 12%,transparent)}
 .addbtn[aria-expanded="true"]{display:none}
 .addform{display:grid;gap:12px;margin-top:4px;padding:14px;border:1px solid var(--rule);border-radius:7px;background:var(--paper)}
-.addform[hidden]{display:none}
 .addform label{display:grid;gap:4px;font-size:14px;font-weight:500;color:var(--ink2)}
-.addform input{width:100%;padding:9px 11px;border:1.5px solid var(--rule);border-radius:5px;background:#fff;color:var(--ink);font:inherit;font-size:16px}
-.addform input:focus{outline:none;border-color:var(--k);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 22%,transparent)}
+.addform input,.addform select{width:100%;padding:9px 11px;border:1.5px solid var(--rule);border-radius:5px;background:#fff;color:var(--ink);font:inherit;font-size:16px}
+.addform input:focus,.addform select:focus{outline:none;border-color:var(--k);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 22%,transparent)}
+.locbox{display:grid;gap:8px}
+.locrow{display:flex;gap:8px}
+.locrow input{flex:1;min-width:0}
+.find{flex:none;padding:7px 16px;border:1.5px solid var(--k);border-radius:999px;background:none;color:var(--k);font-size:14.5px;font-weight:500;cursor:pointer}
+.find:disabled{opacity:.5;cursor:default}
+.results{display:grid;gap:4px}
+.results:empty{display:none}
+.res{padding:8px 11px;border:1.5px solid var(--rule);border-radius:5px;background:#fff;text-align:left;font-size:14.5px;cursor:pointer}
+.res:hover{border-color:var(--k)}
+.res[aria-pressed="true"]{border-color:var(--k);background:color-mix(in srgb,var(--c) 14%,#fff)}
+.osm{font-size:12.5px;color:var(--ink2)}
+.locmsg{font-size:14px;color:var(--ink2)}
+.locmsg:empty{display:none}
 .fbtns{display:flex;gap:8px}
 .fadd,.fclose{padding:7px 18px;border-radius:999px;font-size:14.5px;font-weight:500;cursor:pointer}
 .fadd{border:1.5px solid var(--k);background:var(--k);color:#fff}
 .fclose{border:1.5px solid var(--rule);background:none}
 .fclose:hover{border-color:var(--ink2)}
-@media (prefers-reduced-motion:no-preference){.mine li.new{animation:pop .35s ease-out}}
+@media (prefers-reduced-motion:no-preference){.todo li.new{animation:pop .35s ease-out}}
 @keyframes pop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
-@media print{.add,.del{display:none}}
+@media print{.add,.del,.fbt{display:none}}
 @media (max-width:820px){.map-grid{grid-template-columns:1fr}.zoom{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.hint{padding:0}}
 @media (max-width:640px){
 .wrap{padding-left:18px;padding-right:18px}
@@ -204,8 +224,10 @@ button{font:inherit;color:inherit}
 .reg::before{left:-27px;width:20px}
 .stop h3{font-size:22px}
 .visit{margin-left:0}
+.stop-btns{margin-left:0}
+.add.addplace{margin-left:42px}
 }
-@media print{.tabs,.zoom,.hint,#reset{display:none}body{background:#fff}.band-scroll{overflow:visible}}
+@media print{.tabs,.zoom,.hint{display:none}body{background:#fff}.band-scroll{overflow:visible}}
 </style>
 </head>
 <body>
@@ -235,7 +257,7 @@ button{font:inherit;color:inherit}
 <main class="wrap" id="countries"></main>
 <footer class="foot wrap">
   <p id="status" aria-live="polite"></p>
-  <button type="button" id="reset">Clear all ticks</button>
+  <div class="fbt"><button type="button" id="restore" hidden></button><button type="button" id="reset">Clear all ticks</button></div>
 </footer>
 
 <script>
@@ -504,7 +526,10 @@ const reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motio
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[ch]);
 const slug = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+const rid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
 const CHECK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg>';
+const CROSS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg>';
+const PLUS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg>';
 const ICON = {
   bus:'<path d="M6 17V6.5A2.5 2.5 0 0 1 8.5 4h7A2.5 2.5 0 0 1 18 6.5V17zM6 11h12M8 17v2.5M16 17v2.5M9 14h.01M15 14h.01"/>',
   boat:'<path d="M3 18c1.5 1.3 3 1.3 4.5 0s3-1.3 4.5 0 3 1.3 4.5 0 3-1.3 4.5 0M5 14.5 6 9h12l1 5.5M12 9V4M12 4l4 2.5h-4"/>',
@@ -513,26 +538,60 @@ const ICON = {
 };
 const NOTE = {warn:"Heads up:", tip:"Tip:", plan:"To decide:"};
 
-/* ---------- index ---------- */
-const STOPS = [], ITEMS = [];
+/* ---------- ids ---------- */
 TRIP.forEach(c => {
   c.stops.forEach(s => {
-    s.c = c; s.id = c.id + "-" + slug(s.n); s.num = STOPS.length + 1; STOPS.push(s);
-    (s.todo || []).forEach(it => { if (it.h) return; it.id = s.id + "--" + slug(it.t); it.c = c; ITEMS.push(it); });
+    s.c = c; s.id = c.id + "-" + slug(s.n);
+    (s.todo || []).forEach(it => { if (!it.h) it.id = s.id + "--" + slug(it.t); });
   });
   ["taste", "maybe"].forEach(k => (c[k] || []).forEach(it => {
-    it.id = c.id + "-" + k + "--" + slug(it.t); it.c = c; if (k === "maybe") it.opt = 1; ITEMS.push(it);
+    it.id = c.id + "-" + k + "--" + slug(it.t); if (k === "maybe") it.opt = 1;
   }));
 });
 
 /* ---------- state ---------- */
 const KEY = "sea-roadtrip-2026-27";
 const store = (window.storage && typeof window.storage.get === "function" && typeof window.storage.set === "function") ? window.storage : null;
-let state = {done: {}}, loaded = !store, saveT = 0, armT = 0;
-const tally = $("#tally"), statusEl = $("#status"), resetBtn = $("#reset");
+const state = {done: {}, custom: {}, removed: {}, places: {}};
+let loaded = !store, dirty = false, saveT = 0, delT = 0, delArmed = null, io = null;
+const tally = $("#tally"), statusEl = $("#status"), resetBtn = $("#reset"), restoreBtn = $("#restore");
 const NS = "http://www.w3.org/2000/svg", W = 648, H = 560, AR = W / H;
 let svg = null, vb = {x: 0, y: 0, w: W, h: H}, pxW = W, active = "", showCL = true, raf = 0, zbAllN = null;
-const GL = [], LEGS = [], HULLS = [];
+let STOPS = [], LEGS = [], HULLS = [], gH = null, gR = null, gD = null, gL = null;
+const GL = [];
+
+/* ---------- route order ---------- */
+function routeOf(c){
+  const list = c.stops.slice();
+  (state.places[c.id] || []).forEach(p => {
+    const w = {id: p.id, n: p.n, len: p.len, geo: p.geo, after: p.after, c, custom: true};
+    const i = p.after ? list.findIndex(s => s.id === p.after) : -1;
+    if (p.after && i < 0) { list.push(w); return; }
+    let j = i + 1;
+    while (j < list.length && list[j].custom && list[j].after === p.after) j++;
+    list.splice(j, 0, w);
+  });
+  return list;
+}
+function renderAll(){
+  STOPS = [];
+  TRIP.forEach(c => {
+    c.route = routeOf(c);
+    c.vis = c.route.filter(s => !state.removed[s.id]);
+    c.vis.forEach(s => { s.num = STOPS.length + 1; STOPS.push(s); });
+  });
+  $("#countries").innerHTML = TRIP.map(countryHTML).join("");
+  if (io) io.disconnect();
+  TRIP.forEach(c => {
+    const sec = document.getElementById("c-" + c.id);
+    c.bar = sec.querySelector(".c-prog .bar i");
+    c.count = sec.querySelector(".c-count");
+    if (io) io.observe(sec);
+  });
+  STOPS.forEach(s => { s.art = document.getElementById("s-" + s.id); s.btn = s.art.querySelector(".visit"); });
+  drawRoute();
+  refresh();
+}
 
 /* ---------- html ---------- */
 function bandHTML(){
@@ -552,38 +611,64 @@ function bandHTML(){
   if (di >= 0 && di < TD) h += `<div class="today${di / TD > .85 ? " flip" : ""}" style="left:${pc(di + .5)}"><span>Today, ${now.getDate()} ${MON[now.getMonth()]}</span></div>`;
   return h;
 }
-function itemHTML(it){
-  if (it.h) return `<li class="h">${esc(it.h)}</li>`;
+const delBtn = (id, kind, name) => `<button type="button" class="del" data-del="${id}" data-kind="${kind}" data-name="${esc(name)}" aria-label="Remove ${esc(name)}">${CROSS}</button>`;
+function itemHTML(it, kind, fresh){
   let d = it.d ? esc(it.d) : "";
   if (it.link) d += ` <a href="${esc(it.link[1])}" target="_blank" rel="noopener">${esc(it.link[0])}</a>`;
   if (it.tel) d += ` ${esc(it.tel[0])}: <a href="tel:${esc(it.tel[2])}">${esc(it.tel[1])}</a>`;
-  return `<li><label class="chk"><input type="checkbox" data-id="${it.id}"><span class="box">${CHECK}</span><span class="t"><b>${esc(it.t)}</b>${it.p ? `<em class="price">${esc(it.p)}</em>` : ""}${d ? `<span class="d">${d}</span>` : ""}</span></label></li>`;
+  return `<li class="it${fresh ? " new" : ""}"><label class="chk"><input type="checkbox" data-id="${it.id}"${state.done[it.id] ? " checked" : ""}><span class="box">${CHECK}</span><span class="t"><b>${esc(it.t)}</b>${it.p ? `<em class="price">${esc(it.p)}</em>` : ""}${d ? `<span class="d">${d}</span>` : ""}</span></label>${delBtn(it.id, kind, it.t)}</li>`;
 }
-function stopHTML(s){
+function listHTML(list){
+  let h = "", head = null;
+  (list || []).forEach(it => {
+    if (it.h) { head = it.h; return; }
+    if (state.removed[it.id]) return;
+    if (head) { h += `<li class="h">${esc(head)}</li>`; head = null; }
+    h += itemHTML(it, "item");
+  });
+  return h;
+}
+function stopHTML(s, rg){
   let h = "";
-  if (s.reg) h += `<p class="reg">${esc(s.reg)}${s.regLen ? `<span>${esc(s.regLen)}</span>` : ""}</p>`;
+  if (rg) h += `<p class="reg">${esc(rg.reg)}${rg.regLen ? `<span>${esc(rg.regLen)}</span>` : ""}</p>`;
   if (s.get) h += `<p class="leg"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON[s.get[0]]}</svg></span>${esc(s.get[1])}</p>`;
   h += `<article class="stop" id="s-${s.id}"><div class="node" aria-hidden="true">${s.num}</div><div class="stop-main"><div class="stop-top"><h3>${esc(s.n)}</h3>`;
   if (s.len) h += `<span class="len">${esc(s.len)}</span>`;
   if (s.opt) h += `<span class="tag">Maybe</span>`;
-  h += `<button type="button" class="visit" data-id="${s.id}" aria-pressed="false" aria-label="Visited ${esc(s.n)}"><span class="off">Mark as visited</span><span class="on">${CHECK}Visited</span></button></div>`;
+  if (s.custom) h += `<span class="tag">Added</span>`;
+  h += `<span class="stop-btns"><button type="button" class="visit" data-id="${s.id}" aria-pressed="false" aria-label="Visited ${esc(s.n)}"><span class="off">Mark as visited</span><span class="on">${CHECK}Visited</span></button>${delBtn(s.id, s.custom ? "place" : "stop", s.n)}</span></div>`;
   (s.txt || []).forEach(p => { h += `<p class="txt">${esc(p)}</p>`; });
-  if (s.todo) h += `<ul class="todo">${s.todo.map(itemHTML).join("")}</ul>`;
-  h += `<ul class="todo mine" data-stop="${s.id}"></ul><div class="add"><button type="button" class="addbtn" data-add="${s.id}" aria-expanded="false" aria-label="Add activity to ${esc(s.n)}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg>Add activity</button><form class="addform" data-form="${s.id}" aria-label="Add an activity to ${esc(s.n)}" hidden><label>Activity<input name="t" required maxlength="140" autocomplete="off" placeholder="e.g. Cooking class"></label><label>Notes, optional<input name="d" maxlength="400" autocomplete="off" placeholder="Price, timing, tips"></label><div class="fbtns"><button type="submit" class="fadd">Add</button><button type="button" class="fclose">Close</button></div></form></div>`;
+  const todo = listHTML(s.todo);
+  if (todo) h += `<ul class="todo">${todo}</ul>`;
+  h += `<ul class="todo mine" data-stop="${s.id}">${(state.custom[s.id] || []).map(it => itemHTML(it, "custom")).join("")}</ul>`;
+  h += `<div class="add"><button type="button" class="addbtn" aria-controls="f-${s.id}" aria-expanded="false" aria-label="Add activity to ${esc(s.n)}">${PLUS}Add activity</button><form class="addform" id="f-${s.id}" data-form="${s.id}" aria-label="Add an activity to ${esc(s.n)}" hidden><label>Activity<input name="t" required maxlength="140" autocomplete="off" placeholder="e.g. Cooking class"></label><label>Notes, optional<input name="d" maxlength="400" autocomplete="off" placeholder="Price, timing, tips"></label><div class="fbtns"><button type="submit" class="fadd">Add</button><button type="button" class="fclose">Close</button></div></form></div>`;
   (s.note || []).forEach(n => { h += `<p class="note"><b>${NOTE[n[0]]}</b> ${esc(n[1])}</p>`; });
   if (s.stay) h += `<p class="meta"><b>Stay:</b> ${esc(s.stay)}</p>`;
   if (s.link) h += `<p class="meta"><a href="${esc(s.link[1])}" target="_blank" rel="noopener">${esc(s.link[0])}</a></p>`;
   if (s.costs) h += `<table class="costs"><caption>${esc(s.costsTitle || "Costs")}</caption><tbody>${s.costs.map(r => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</tbody>${s.total ? `<tfoot><tr><td>${esc(s.total[0])}</td><td>${esc(s.total[1])}</td></tr></tfoot>` : ""}</table>`;
   return h + `</div></article>`;
 }
+function routeHTML(c){
+  let h = "", pend = null;
+  c.route.forEach(s => {
+    if (s.reg) pend = s;
+    if (state.removed[s.id]) return;
+    h += stopHTML(s, pend); pend = null;
+  });
+  return h;
+}
+function placeFormHTML(c){
+  return `<div class="add addplace"><button type="button" class="addbtn" aria-controls="pf-${c.id}" aria-expanded="false">${PLUS}Add a place in ${esc(c.name)}</button><form class="addform placeform" id="pf-${c.id}" data-c="${c.id}" aria-label="Add a place in ${esc(c.name)}" hidden><label>Place<input name="n" required maxlength="80" autocomplete="off" placeholder="e.g. a town, beach or national park"></label><label>How long, optional<input name="len" maxlength="40" autocomplete="off" placeholder="e.g. 2 days"></label><div class="locbox"><label for="q-${c.id}">Location</label><div class="locrow"><input id="q-${c.id}" name="q" maxlength="120" autocomplete="off" placeholder="Search for it on the map"><button type="button" class="find">Find</button></div><div class="results"></div><label>Or paste coordinates<input name="geo" maxlength="80" autocomplete="off" placeholder="e.g. 14.0227, 99.5328"></label><p class="locmsg" aria-live="polite"></p></div><label>Position on the route<select name="after"></select></label><div class="fbtns"><button type="submit" class="fadd">Add place</button><button type="button" class="fclose">Close</button></div></form></div>`;
+}
 function countryHTML(c){
   let h = `<section class="country" id="c-${c.id}" style="--c:${c.c};--k:${c.k}" aria-labelledby="h-${c.id}"><header class="c-head"><h2 id="h-${c.id}">${esc(c.name)}</h2><p class="c-when">${esc(c.when)}<span>${esc(c.len)}</span></p></header>`;
   h += `<div class="c-prog"><span class="bar"><i></i></span><span class="c-count"></span></div>`;
   if (c.facts) h += `<dl class="facts">${c.facts.map(f => `<div><dt>${esc(f[0])}</dt><dd>${esc(f[1])}</dd></div>`).join("")}</dl>`;
-  h += `<div class="route">${c.stops.map(stopHTML).join("")}</div>`;
-  const ex = [];
-  if (c.taste) ex.push(`<div><h3>Foods to try</h3><ul class="todo">${c.taste.map(itemHTML).join("")}</ul></div>`);
-  if (c.maybe) ex.push(`<div><h3>Maybe, if there’s time</h3><ul class="todo">${c.maybe.map(itemHTML).join("")}</ul></div>`);
+  h += `<div class="route">${routeHTML(c)}</div>`;
+  h += placeFormHTML(c);
+  const ex = [], taste = listHTML(c.taste), maybe = listHTML(c.maybe);
+  if (taste) ex.push(`<div><h3>Foods to try</h3><ul class="todo">${taste}</ul></div>`);
+  if (maybe) ex.push(`<div><h3>Maybe, if there’s time</h3><ul class="todo">${maybe}</ul></div>`);
   if (c.good) ex.push(`<div><h3>Good to know</h3><ul class="good">${c.good.map(g => `<li>${esc(g)}</li>`).join("")}</ul></div>`);
   if (ex.length) h += `<div class="extras">${ex.join("")}</div>`;
   return h + `</section>`;
@@ -598,12 +683,9 @@ function buildTabs(){
     a.innerHTML = esc(c.name) + "<small></small>";
     box.appendChild(a); c.tab = a; c.tabN = a.querySelector("small");
   });
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver(es => es.forEach(en => {
-      if (en.isIntersecting) TRIP.forEach(c => c.tab.classList.toggle("on", "c-" + c.id === en.target.id));
-    }), {rootMargin: "-40% 0px -55% 0px"});
-    TRIP.forEach(c => io.observe(document.getElementById("c-" + c.id)));
-  }
+  if ("IntersectionObserver" in window) io = new IntersectionObserver(es => es.forEach(en => {
+    if (en.isIntersecting) TRIP.forEach(c => c.tab.classList.toggle("on", "c-" + c.id === en.target.id));
+  }), {rootMargin: "-40% 0px -55% 0px"});
 }
 
 /* ---------- map ---------- */
@@ -615,6 +697,7 @@ function mk(tag, attrs, parent){
   return e;
 }
 function hull(pts){
+  if (pts.length < 3) return pts.slice();
   const p = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
   const cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
   const lo = [], up = [];
@@ -638,33 +721,12 @@ function buildMap(){
     const t = mk("text", {}, gG); t.textContent = l + "°E";
     GL.push({t, k: "x", v: x});
   });
-  STOPS.forEach(s => { s.xy = proj(s.geo); });
-  const gH = mk("g", {}, svg);
-  TRIP.forEach(c => {
-    const hp = hull(c.stops.map(s => s.xy));
-    const g = mk("g", {opacity: ".14"}, gH);
-    HULLS.push(mk("path", {class: "hullp", d: "M" + hp.map(p => p[0].toFixed(1) + " " + p[1].toFixed(1)).join("L") + "Z", fill: c.c, stroke: c.c, "stroke-linejoin": "round"}, g));
-  });
-  const gR = mk("g", {}, svg);
-  let prev = null;
-  STOPS.forEach(s => {
-    (s.via ? [proj(s.via), s.xy] : [s.xy]).forEach(p => {
-      if (prev) LEGS.push({s, el: mk("line", {class: "legl", x1: prev[0], y1: prev[1], x2: p[0], y2: p[1]}, gR)});
-      prev = p;
-    });
-  });
+  gH = mk("g", {}, svg);
+  gR = mk("g", {}, svg);
   const gC = mk("g", {}, svg);
   TRIP.forEach(c => { c.cl = mk("text", {class: "clbl", x: c.lab[0], y: c.lab[1], "text-anchor": c.lab[2], fill: c.k}, gC); c.cl.textContent = c.name; });
-  const gD = mk("g", {}, svg), gL = mk("g", {}, svg);
-  STOPS.forEach(s => {
-    const g = mk("g", {class: "dot", tabindex: "0", role: "button", "aria-label": s.n + ", " + s.c.name}, gD);
-    mk("title", {}, g).textContent = s.n;
-    s.dot = mk("circle", {cx: s.xy[0], cy: s.xy[1], r: 4.5, fill: "#fff", stroke: s.c.c}, g);
-    s.dotG = g;
-    s.lbl = mk("text", {class: "lbl"}, gL); s.lbl.textContent = s.m || s.n;
-    g.addEventListener("click", () => dotClick(s));
-    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); dotClick(s); } });
-  });
+  gD = mk("g", {}, svg);
+  gL = mk("g", {}, svg);
   const z = $("#zoom");
   const mkBtn = (cid, name, color) => {
     const b = document.createElement("button");
@@ -686,6 +748,38 @@ function buildMap(){
   if ("ResizeObserver" in window) new ResizeObserver(measure).observe(svg); else window.addEventListener("resize", measure);
   measure();
 }
+function drawRoute(){
+  [gH, gR, gD, gL].forEach(g => { while (g.firstChild) g.removeChild(g.firstChild); });
+  HULLS = []; LEGS = [];
+  STOPS.forEach(s => { s.xy = proj(s.geo); });
+  const pt = p => p[0].toFixed(1) + " " + p[1].toFixed(1);
+  TRIP.forEach(c => {
+    if (!c.vis.length) return;
+    const hp = hull(c.vis.map(s => s.xy));
+    const d = hp.length === 1 ? "M" + pt(hp[0]) + "L" + pt(hp[0]) : "M" + hp.map(pt).join("L") + "Z";
+    const g = mk("g", {opacity: ".14"}, gH);
+    HULLS.push(mk("path", {class: "hullp", d, fill: c.c, stroke: c.c, "stroke-linejoin": "round", "stroke-linecap": "round"}, g));
+  });
+  let prev = null;
+  STOPS.forEach(s => {
+    (s.via ? [proj(s.via), s.xy] : [s.xy]).forEach(p => {
+      if (prev) LEGS.push({s, el: mk("line", {class: "legl", x1: prev[0], y1: prev[1], x2: p[0], y2: p[1]}, gR)});
+      prev = p;
+    });
+  });
+  STOPS.forEach(s => {
+    const g = mk("g", {class: "dot", tabindex: "0", role: "button", "aria-label": s.n + ", " + s.c.name}, gD);
+    mk("title", {}, g).textContent = s.n;
+    s.dot = mk("circle", {cx: s.xy[0], cy: s.xy[1], r: 4.5, fill: "#fff", stroke: s.c.c}, g);
+    s.dotG = g;
+    s.lbl = mk("text", {class: "lbl"}, gL); s.lbl.textContent = s.m || s.n;
+    g.addEventListener("click", () => dotClick(s));
+    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); dotClick(s); } });
+  });
+  rescale();
+  applyActive();
+  if (active) zoomTo(boxFor(TRIP.find(c => c.id === active)));
+}
 function rescale(){
   if (!svg) return;
   const u = vb.w / pxW, off = 8 * u;
@@ -698,6 +792,7 @@ function rescale(){
   HULLS.forEach(p => p.setAttribute("stroke-width", hw));
   TRIP.forEach(c => { c.cl.setAttribute("font-size", (15 * u).toFixed(2)); c.cl.setAttribute("stroke-width", (4 * u).toFixed(2)); });
   STOPS.forEach(s => {
+    if (!s.dot) return;
     s.dot.setAttribute("r", (4.6 * u).toFixed(2));
     const x = s.xy[0], y = s.xy[1], t = s.lbl, p = s.lp || "r";
     let tx = x, ty = y + 4.3 * u, a = "start";
@@ -715,7 +810,8 @@ function setVB(v){
   rescale();
 }
 function boxFor(c){
-  const xs = c.stops.map(s => s.xy[0]), ys = c.stops.map(s => s.xy[1]);
+  if (!c || !c.vis.length) return {x: 0, y: 0, w: W, h: H};
+  const xs = c.vis.map(s => s.xy[0]), ys = c.vis.map(s => s.xy[1]);
   let x0 = Math.min(...xs) - 36, y0 = Math.min(...ys) - 30;
   let w = Math.max(...xs) + 36 - x0, h = Math.max(...ys) + 30 - y0;
   if (w / h < AR) { const nw = h * AR; x0 -= (nw - w) / 2; w = nw; } else { const nh = w / AR; y0 -= (nh - h) / 2; h = nh; }
@@ -734,14 +830,18 @@ function zoomTo(t){
   };
   raf = requestAnimationFrame(step);
 }
+function applyActive(){
+  STOPS.forEach(s => {
+    if (!s.dotG) return;
+    s.dotG.classList.toggle("dim", !!active && s.c.id !== active);
+    s.lbl.classList.toggle("on", !!active && s.c.id === active);
+  });
+  TRIP.forEach(c => c.cl.classList.toggle("off", !!active || !showCL));
+}
 function setActive(cid){
   active = cid;
   document.querySelectorAll(".zb").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === cid ? "true" : "false"));
-  STOPS.forEach(s => {
-    s.dotG.classList.toggle("dim", !!cid && s.c.id !== cid);
-    s.lbl.classList.toggle("on", !!cid && s.c.id === cid);
-  });
-  TRIP.forEach(c => c.cl.classList.toggle("off", !!cid || !showCL));
+  applyActive();
   zoomTo(cid ? boxFor(TRIP.find(c => c.id === cid)) : {x: 0, y: 0, w: W, h: H});
 }
 function dotClick(s){
@@ -755,18 +855,12 @@ function goTo(el, flash){
 }
 
 /* ---------- your own activities ---------- */
-state.custom = {};
-let dirty = false, delT = 0, delArmed = null;
-const CROSS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg>';
-function customHTML(it, fresh){
-  return `<li${fresh ? ' class="new"' : ""}><label class="chk"><input type="checkbox" data-id="${it.id}"${state.done[it.id] ? " checked" : ""}><span class="box">${CHECK}</span><span class="t"><b>${esc(it.t)}</b>${it.d ? `<span class="d">${esc(it.d)}</span>` : ""}</span></label><button type="button" class="del" data-del="${it.id}" data-name="${esc(it.t)}" aria-label="Remove ${esc(it.t)}">${CROSS}</button></li>`;
-}
 function renderCustom(sid, freshId){
   const ul = document.querySelector('.mine[data-stop="' + sid + '"]');
-  if (ul) ul.innerHTML = (state.custom[sid] || []).map(it => customHTML(it, it.id === freshId)).join("");
+  if (ul) ul.innerHTML = (state.custom[sid] || []).map(it => itemHTML(it, "custom", it.id === freshId)).join("");
 }
 function addCustom(sid, t, d){
-  const it = {id: sid + "--u-" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), t: t};
+  const it = {id: sid + "--u-" + rid(), t: t};
   if (d) it.d = d;
   (state.custom[sid] = state.custom[sid] || []).push(it);
   renderCustom(sid, it.id); refresh(); save();
@@ -777,12 +871,92 @@ function removeCustom(id){
   delete state.done[id];
   renderCustom(sid); refresh(); save();
 }
-function toggleForm(sid, open){
-  const btn = document.querySelector('.addbtn[data-add="' + sid + '"]'), form = document.querySelector('.addform[data-form="' + sid + '"]');
-  if (!btn || !form) return;
-  form.hidden = !open;
-  btn.setAttribute("aria-expanded", open ? "true" : "false");
-  if (open) form.elements.t.focus(); else { form.reset(); btn.focus(); }
+
+/* ---------- your own places ---------- */
+function parseGeo(str){
+  const s = String(str || "");
+  const m = s.match(/@(-?\d{1,3}\.\d+),\s*(-?\d{1,3}\.\d+)/) || s.match(/(-?\d{1,3}\.\d+)\s*[,;\s]\s*(-?\d{1,3}\.\d+)/);
+  if (!m) return null;
+  const lat = +m[1], lng = +m[2];
+  if (!isFinite(lat) || !isFinite(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) return null;
+  return [+lat.toFixed(5), +lng.toFixed(5)];
+}
+function fillAfter(f){
+  const c = TRIP.find(x => x.id === f.dataset.c), sel = f.elements.after;
+  sel.innerHTML = `<option value="">At the start of ${esc(c.name)}</option>` + c.vis.map(s => `<option value="${s.id}">After ${s.num}. ${esc(s.n)}</option>`).join("");
+  sel.value = c.vis.length ? c.vis[c.vis.length - 1].id : "";
+}
+async function findPlace(f){
+  const c = TRIP.find(x => x.id === f.dataset.c), msg = f.querySelector(".locmsg"), box = f.querySelector(".results"), btn = f.querySelector(".find");
+  let q = f.elements.q.value.trim();
+  if (!q) { q = f.elements.n.value.trim(); f.elements.q.value = q; }
+  if (!q) { msg.textContent = "Type the place name first."; f.elements.q.focus(); return; }
+  const g = parseGeo(q);
+  if (g) { f.elements.geo.value = g.join(", "); box.innerHTML = ""; msg.textContent = "Location set from your coordinates."; return; }
+  btn.disabled = true; box.innerHTML = ""; msg.textContent = "Searching…";
+  try {
+    const r = await fetch("https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&accept-language=en&countrycodes=" + c.id + "&q=" + encodeURIComponent(q));
+    if (!r.ok) throw new Error("search");
+    const list = await r.json();
+    if (!Array.isArray(list) || !list.length) { msg.textContent = `Nothing found in ${c.name}. Try another spelling, or paste coordinates below.`; return; }
+    box.innerHTML = list.map(x => {
+      const parts = String(x.display_name || "").split(", ");
+      return `<button type="button" class="res" aria-pressed="false" data-lat="${(+x.lat).toFixed(5)}" data-lng="${(+x.lon).toFixed(5)}" data-name="${esc(x.name || parts[0])}">${esc(parts.slice(0, 3).join(", "))}</button>`;
+    }).join("") + `<p class="osm">Search results © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</p>`;
+    msg.textContent = "Pick the right match.";
+  } catch (e) {
+    msg.textContent = "Search isn’t available right now. Paste coordinates instead: in Google Maps, press and hold the spot (right-click on a computer) and copy the two numbers.";
+  } finally { btn.disabled = false; }
+}
+function pickResult(btn){
+  const f = btn.closest("form");
+  f.querySelectorAll(".res").forEach(r => r.setAttribute("aria-pressed", r === btn ? "true" : "false"));
+  f.elements.geo.value = btn.dataset.lat + ", " + btn.dataset.lng;
+  if (!f.elements.n.value.trim()) f.elements.n.value = btn.dataset.name;
+  f.querySelector(".locmsg").textContent = "Location set: " + btn.textContent + ".";
+}
+function submitPlace(f){
+  const c = TRIP.find(x => x.id === f.dataset.c), msg = f.querySelector(".locmsg");
+  const n = f.elements.n.value.trim(), len = f.elements.len.value.trim();
+  if (!n) { f.elements.n.value = ""; f.elements.n.focus(); return; }
+  const geo = parseGeo(f.elements.geo.value) || parseGeo(f.elements.q.value);
+  if (!geo) { msg.textContent = "Add a location first: search and pick a match, or paste coordinates."; f.elements.q.focus(); return; }
+  const p = {id: c.id + "--p-" + rid(), n: n, geo: geo, after: f.elements.after.value};
+  if (len) p.len = len;
+  (state.places[c.id] = state.places[c.id] || []).push(p);
+  renderAll(); save();
+  const art = document.getElementById("s-" + p.id);
+  if (art) goTo(art, true);
+}
+function removePlace(id){
+  const cid = id.split("--p-")[0], list = state.places[cid] || [], p = list.find(x => x.id === id);
+  if (!p) return;
+  list.forEach(x => { if (x.after === id) x.after = p.after; });
+  const rest = list.filter(x => x.id !== id);
+  if (rest.length) state.places[cid] = rest; else delete state.places[cid];
+  (state.custom[id] || []).forEach(x => { delete state.done[x.id]; });
+  delete state.custom[id]; delete state.done[id];
+  renderAll(); save();
+}
+function removeThing(btn){
+  const id = btn.dataset.del, kind = btn.dataset.kind;
+  if (kind === "custom") removeCustom(id);
+  else if (kind === "place") removePlace(id);
+  else { state.removed[id] = 1; renderAll(); save(); }
+}
+function toggleForm(f, open){
+  if (!f) return;
+  const btn = document.querySelector('.addbtn[aria-controls="' + f.id + '"]');
+  f.hidden = !open;
+  if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) {
+    if (f.classList.contains("placeform")) fillAfter(f);
+    const first = f.querySelector("input"); if (first) first.focus();
+  } else {
+    f.reset();
+    f.querySelectorAll(".results, .locmsg").forEach(x => { x.innerHTML = ""; });
+    if (btn) btn.focus();
+  }
 }
 function disarmDel(){
   clearTimeout(delT);
@@ -791,6 +965,8 @@ function disarmDel(){
   delArmed.setAttribute("aria-label", "Remove " + delArmed.dataset.name);
   delArmed = null;
 }
+
+/* ---------- saved data ---------- */
 function cleanCustom(raw){
   const out = {};
   if (!raw || typeof raw !== "object") return out;
@@ -802,6 +978,23 @@ function cleanCustom(raw){
   });
   return out;
 }
+function cleanPlaces(raw){
+  const out = {};
+  if (!raw || typeof raw !== "object") return out;
+  TRIP.forEach(c => {
+    const list = (Array.isArray(raw[c.id]) ? raw[c.id] : [])
+      .filter(p => p && typeof p.id === "string" && typeof p.n === "string" && p.n.trim() && Array.isArray(p.geo) && p.geo.length === 2 && p.geo.every(v => typeof v === "number" && isFinite(v)))
+      .map(p => { const o = {id: p.id, n: p.n, geo: [p.geo[0], p.geo[1]], after: typeof p.after === "string" ? p.after : ""}; if (typeof p.len === "string" && p.len) o.len = p.len; return o; });
+    if (list.length) out[c.id] = list;
+  });
+  return out;
+}
+function mergeLists(target, incoming){
+  Object.keys(incoming).forEach(k => {
+    const cur = target[k] || [], ids = new Set(cur.map(x => x.id));
+    target[k] = incoming[k].filter(x => !ids.has(x.id)).concat(cur);
+  });
+}
 
 /* ---------- progress ---------- */
 function refresh(){
@@ -809,15 +1002,18 @@ function refresh(){
   let SV = 0, ST = 0, IV = 0, IT = 0;
   TRIP.forEach(c => {
     let sv = 0, st = 0, iv = 0, it = 0;
-    c.stops.forEach(s => {
+    const tick = x => { if (x.h || x.opt || state.removed[x.id]) return; it++; if (d[x.id]) iv++; };
+    c.vis.forEach(s => {
       const v = !!d[s.id];
       if (!s.opt) { st++; if (v) sv++; }
       s.art.classList.toggle("visited", v);
       s.btn.setAttribute("aria-pressed", v ? "true" : "false");
       if (s.dot) s.dot.setAttribute("fill", v ? c.c : "#fff");
-      (state.custom[s.id] || []).forEach(x => { it++; if (d[x.id]) iv++; });
+      (s.todo || []).forEach(tick);
+      (state.custom[s.id] || []).forEach(tick);
     });
-    ITEMS.forEach(x => { if (x.c === c && !x.opt) { it++; if (d[x.id]) iv++; } });
+    (c.taste || []).forEach(tick);
+    (c.maybe || []).forEach(tick);
     const pct = (st ? sv / st * 100 : 0) + "%";
     c.bar.style.width = pct;
     if (c.segBar) c.segBar.style.width = pct;
@@ -830,21 +1026,23 @@ function refresh(){
   LEGS.forEach(l => l.el.classList.toggle("done", !!d[l.s.id]));
   zbAllN.textContent = `${SV}/${ST}`;
   if (loaded) tally.textContent = `${SV} of ${ST} stops visited and ${IV} of ${IT} things done.` + (SV + IV === 0 ? " Tick them off as you go." : "");
+  const nr = Object.keys(state.removed).length;
+  restoreBtn.hidden = !nr;
+  if (nr && !restoreBtn.classList.contains("arm")) restoreBtn.textContent = `Restore ${nr} removed item${nr === 1 ? "" : "s"}`;
 }
 function setStatus(t){ statusEl.textContent = t; }
 async function load(){
-  if (!store) { setStatus("This copy can’t save changes, so ticks and added activities reset when the page closes."); refresh(); return; }
+  if (!store) { setStatus("This copy can’t save changes, so ticks and edits reset when the page closes."); return; }
   setStatus("Loading your progress…");
   let saved = null;
   try { const r = await store.get(KEY, false); if (r && r.value) saved = JSON.parse(r.value); } catch (e) { saved = null; }
-  if (saved && saved.done && typeof saved.done === "object") state.done = Object.assign({}, saved.done, state.done);
-  const old = cleanCustom(saved && saved.custom);
-  Object.keys(old).forEach(k => {
-    const cur = state.custom[k] || [], ids = new Set(cur.map(x => x.id));
-    state.custom[k] = old[k].filter(x => !ids.has(x.id)).concat(cur);
-    renderCustom(k);
-  });
-  loaded = true; refresh(); setStatus("Changes save automatically.");
+  if (saved && typeof saved === "object") {
+    if (saved.done && typeof saved.done === "object") state.done = Object.assign({}, saved.done, state.done);
+    if (saved.removed && typeof saved.removed === "object") state.removed = Object.assign({}, saved.removed, state.removed);
+    mergeLists(state.custom, cleanCustom(saved.custom));
+    mergeLists(state.places, cleanPlaces(saved.places));
+  }
+  loaded = true; renderAll(); setStatus("Changes save automatically.");
   if (dirty) save();
 }
 function save(){
@@ -858,20 +1056,18 @@ function save(){
   }, 450);
 }
 function setDone(id, v){ if (v) state.done[id] = 1; else delete state.done[id]; refresh(); save(); }
-function disarm(){ clearTimeout(armT); resetBtn.classList.remove("arm"); resetBtn.textContent = "Clear all ticks"; }
+function twoTap(btn, ask, run){
+  if (btn.classList.contains("arm")) { clearTimeout(btn.armT); btn.classList.remove("arm"); run(); return; }
+  btn.dataset.text = btn.textContent; btn.classList.add("arm"); btn.textContent = ask;
+  btn.armT = setTimeout(() => { btn.classList.remove("arm"); btn.textContent = btn.dataset.text; }, 4000);
+}
 
 /* ---------- init ---------- */
 $("#band").innerHTML = bandHTML();
-$("#countries").innerHTML = TRIP.map(countryHTML).join("");
+TRIP.forEach(c => { c.segBar = document.querySelector('.seg[data-c="' + c.id + '"] .seg-bar i'); });
 buildTabs();
 buildMap();
-TRIP.forEach(c => {
-  const sec = document.getElementById("c-" + c.id);
-  c.bar = sec.querySelector(".c-prog .bar i");
-  c.count = sec.querySelector(".c-count");
-  c.segBar = document.querySelector('.seg[data-c="' + c.id + '"] .seg-bar i');
-});
-STOPS.forEach(s => { s.art = document.getElementById("s-" + s.id); s.btn = s.art.querySelector(".visit"); });
+renderAll();
 
 document.addEventListener("change", e => {
   const t = e.target;
@@ -883,15 +1079,19 @@ document.addEventListener("click", e => {
   const del = el.closest(".del");
   if (delArmed && del !== delArmed) disarmDel();
   if (del) {
-    if (del === delArmed) { disarmDel(); removeCustom(del.dataset.del); return; }
+    if (del === delArmed) { disarmDel(); removeThing(del); return; }
     delArmed = del; del.classList.add("arm"); del.textContent = "Remove";
     del.setAttribute("aria-label", "Press again to remove " + del.dataset.name);
     delT = setTimeout(disarmDel, 3000); return;
   }
   const add = el.closest(".addbtn");
-  if (add) { toggleForm(add.dataset.add, true); return; }
+  if (add) { toggleForm(document.getElementById(add.getAttribute("aria-controls")), true); return; }
   const close = el.closest(".fclose");
-  if (close) { toggleForm(close.closest(".addform").dataset.form, false); return; }
+  if (close) { toggleForm(close.closest("form"), false); return; }
+  const find = el.closest(".find");
+  if (find) { findPlace(find.closest("form")); return; }
+  const res = el.closest(".res");
+  if (res) { pickResult(res); return; }
   const b = el.closest(".visit");
   if (b) { setDone(b.dataset.id, !state.done[b.dataset.id]); return; }
   const a = el.closest('a[href^="#"]');
@@ -902,27 +1102,29 @@ document.addEventListener("click", e => {
 });
 document.addEventListener("submit", e => {
   const f = e.target;
-  if (!f || !f.matches || !f.matches(".addform")) return;
+  if (!f || !f.matches || !f.matches("form.addform")) return;
   e.preventDefault();
+  if (f.classList.contains("placeform")) { submitPlace(f); return; }
   const t = f.elements.t.value.trim(), d = f.elements.d.value.trim();
   if (!t) { f.elements.t.value = ""; f.elements.t.focus(); return; }
   addCustom(f.dataset.form, t, d);
   f.reset(); f.elements.t.focus();
 });
 document.addEventListener("keydown", e => {
-  if (e.key !== "Escape" || !e.target.closest) return;
-  const f = e.target.closest(".addform");
-  if (f) toggleForm(f.dataset.form, false);
+  const t = e.target;
+  if (!t || !t.closest) return;
+  const f = t.closest("form.addform");
+  if (!f) return;
+  if (e.key === "Escape") { toggleForm(f, false); return; }
+  if (e.key === "Enter" && t.name === "q" && f.classList.contains("placeform")) { e.preventDefault(); findPlace(f); }
 });
-resetBtn.addEventListener("click", () => {
-  if (!resetBtn.classList.contains("arm")) {
-    resetBtn.classList.add("arm"); resetBtn.textContent = "Press again to clear every tick";
-    armT = setTimeout(disarm, 4000); return;
-  }
-  disarm(); state.done = {}; refresh(); save();
-});
+resetBtn.addEventListener("click", () => twoTap(resetBtn, "Press again to clear every tick", () => {
+  resetBtn.textContent = "Clear all ticks"; state.done = {}; refresh(); save();
+}));
+restoreBtn.addEventListener("click", () => twoTap(restoreBtn, "Press again to restore them", () => {
+  state.removed = {}; renderAll(); save();
+}));
 
-refresh();
 load();
 })();
 </script>
